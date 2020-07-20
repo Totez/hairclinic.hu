@@ -1,0 +1,34 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Colors
+//arculati színek
+$green: #9BB673;
+$black: #292323;
+
+$white: #FFFFFF;
+$purple: #875FF6;
+$blue: #1E45F5;
+
+
+//egyéb színek
+$indigo: #6574cd;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$enable-rounded : false;
+
+$theme-colors: (
+  "dark": $black,
+  "primary": $green,
+  "light": #FFFFFF
+);
