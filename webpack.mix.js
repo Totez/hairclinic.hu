@@ -11,5 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js")
+    .extract([
+        "bootstrap",
+        "jquery",
+        "axios",
+        "popper.js"
+    ])
+    .sourceMaps();
+
+mix.sass("resources/sass/app.scss", "public/css").options({
+	processCssUrls : false,
+	sourceMap: true
+});
+
+mix.copyDirectory("resources/images", "public/images");
