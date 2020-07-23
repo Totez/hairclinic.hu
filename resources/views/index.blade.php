@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
 	
-	<section>
-		<div class="container">
-			<img class="w-100" src="https://placehold.it/1000x500">
-		</div>
+	<section class="hero" style="background-image: url({{ asset("images/hero.jpg") }})">
+		<div class="">A hajtáplálás<br>tudománya</div>
+		<img src="{{ asset('images/buy.svg') }}">
 	</section>
 
 	<section>

@@ -1,0 +1,25 @@
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1366px,
+    xxl: 1920px
+);
+
+$container-max-widths: (
+ 	sm: 576px,
+ 	md: 768px,
+ 	lg: 1024px,
+ 	xl: 1366px,
+ 	xxl: 1920px
+);
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Prompt', sans-serif;
+$font-size-base: 1rem;
+$font-weight-base: 300;
+$line-height-base: 1.6;

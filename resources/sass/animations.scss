@@ -1,0 +1,51 @@
+
+
+
+@mixin slide-text($direction, $duration, $delay) {
+
+	$x : 0;
+	$y : 0;
+
+	@if($direction == "top"){
+		$x : -50px;
+	}
+	@if($direction == "bottom"){
+		$x : 50px;
+	}
+	@if($direction == "left"){
+		$y : -50px;
+	}
+	@if($direction == "right"){
+		$y : 50px;
+	}
+
+	@keyframes slide-#{$direction}-text {
+	  0% {
+	  	transform: translate($y, $x);
+	  	opacity: 0;
+	  }
+	  100% {
+	  	transform: translate(0px, 0px);
+	  	opacity: 1;
+	  }
+	}
+
+	opacity: 1;
+	transform: translate(0px, 0px);
+	display: block;
+	animation-name:slide-#{$direction}-text;
+	animation-duration: $duration;
+	animation-delay: $delay;
+}
+
+.slide-in-text{
+	$from-directions: "top", "bottom", "left", "right";
+
+	@each $direction in $from-directions {
+		[data-from-direction="#{$direction}"]{
+	  		@include slide-text($direction, 0.5s, 0s);
+		}
+	}
+}
+
+
