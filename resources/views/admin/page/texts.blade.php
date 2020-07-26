@@ -5,7 +5,7 @@
         @csrf
         <div class="form-group page-texts">
             <div class="form-group row page-text">
-                @php($pageText = $pageTexts["home.welcome"])
+                @php($pageText = $pageTexts["goodtoknow.first"])
 
                 <input type="hidden" name="page_texts[0][key]" value="{{ $pageText->key }}" required>
 
@@ -21,7 +21,7 @@
                     <textarea class="form-control" name="page_texts[0][text]" required>{{ $pageText->text }}</textarea>
                 </div>
             </div>
-        </div>>
+        </div>
         <input type="submit" value="Mentés">
     </form>
 @endsection

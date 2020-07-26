@@ -15,7 +15,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "spatie/crawler": "^4.7"
+        "weidner/goutte": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/hairclinic', function () {
-    return view('hairclinic');
-});
+Route::get('/hairclinic', [
+    "uses" => "HomeController@hairclinic",
+    "as" => "hairclinic"
+]);
 
 Route::get('/hairclinic-extra', function () {
     return view('hairclinic-extra');
@@ -29,9 +30,10 @@ Route::get('/hairclinic-men', function () {
     return view('hairclinic-men');
 });
 
-Route::get('/good-to-know', function () {
-    return view('good-to-know');
-});
+Route::get('/good-to-know', [
+    "uses" => "HomeController@goodToKnow",
+    "as" => "goodtoknow"
+]);
 
 Route::get('/opinions', function () {
     return view('opinions');
@@ -55,11 +57,6 @@ Route::post("/login", [
 Route::post("/logout", [
     "uses" => "Auth\LoginController@logout",
     "as" => "log-out"
-]);
-
-Route::get("/crawl", [
-    "uses" => "HomeController@crawl",
-    "as" => "crawl"
 ]);
 
 Route::prefix("admin")

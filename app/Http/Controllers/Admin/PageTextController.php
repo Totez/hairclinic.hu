@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Entities\PageText;
 use App\Http\Controllers\AbstractController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PageTextController extends AbstractController {
 
@@ -43,7 +44,7 @@ class PageTextController extends AbstractController {
             $pageText->save();
         }
 
-        $request->session()->push("success", "Szövegek sikeresen elmentve.");
+        $request->session()->flash("success", "Szövegek sikeresen elmentve.");
 
         return response()->redirectToRoute("admin.page.text.list");
     }

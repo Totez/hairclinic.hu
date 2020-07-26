@@ -3,22 +3,22 @@
 
 
 	<section is="good-to-know">
-		
+
 
 		<div class="container">
-			
+
 			<div class="row">
-				
+
 				<div class="col-8 bg-white mx-auto py-5">
 					<h1 style="margin-left:-100px;">Jó tudni</h1>
 
 					<div class="row">
-						
+
 						<div class="col-7 offset-4">
 
 							<p class="text-green py-5" style="font-style:italic;">
-								A hajképző folyamat központja a fejbőr alatt található hajgyökér, amely a hajszálak növekedéséért és rögzítéséért felelős. A hajgyökeret rugalmas szövetek veszik körül (ún. kollagén-burok). A hajszálerek, amelyek a hajképzéshez szükséges tápanyagokat szállítják, e szöveteken keresztül jutnak be a hajgyökérbe. Fontos, hogy a hajgyökereknek rendelkezésükre álljanak a szép és egészséges hajszálakhoz szükséges minőségű és mennyiségű tápanyagok.
-							</p>
+							    {{ $pageTexts["goodtoknow.first"]->text }}
+                            </p>
 
 							@php
 								$faq = [
@@ -82,7 +82,7 @@
 							@endforeach
 
 						</div>
-					
+
 					</div>
 
 				</div>

@@ -3,11 +3,11 @@
 
 
 	<section id="hariclinic">
-		
+
 		<div class="container">
-			
+
 			<div class="row">
-				
+
 				<div id="product-nav" class="col-4 position-fixed fixed-col-left h-100 bg-white" style="top:85px;">
 					<div class="row">
 						<div class="col">
@@ -29,7 +29,7 @@
 								</div>
 							</div>
 						</div>
-								
+
 					</div>
 				</div>
 				<div class="col-6 offset-6 py-5" id="info">
@@ -43,6 +43,7 @@
 						A HairClinic® Extra tabletta a hajgyökeret olyan ásványi anyagokkal és vitaminokkal táplálja, amelyek hozzájárulnak az egészséges hajszerkezet megőrzéséhez.
 						A retard filmtabletta különlegessége, hogy a benne lévő tápanyagmennyiséget több órán keresztül, elnyújtva juttatja a véráramba. Ezáltal folyamatosan ellátja a sejteket tápanyagokkal.
 					</p>
+                    <p class="dm">Rossmann ár: {{ $price }}</p>
 				</div>
 				<div class="col-6 offset-6 py-5" id="ingredients">
 
@@ -113,7 +114,7 @@
 								<span class="inline-block" style="width:200px;">Egy kattintás, és megvásárolhatod <br> a kedvenc online drogériádban</span>
 							</div>
 						</div>
-							
+
 						<h6 class="text-green mt-5 font-weight-light">27 kapszula</h6>
 						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover">
 							<div class="col-6">
