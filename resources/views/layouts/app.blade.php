@@ -10,7 +10,9 @@
     <title>{{ config('app.name', 'dfp.hu') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/manifest.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +32,7 @@
 	{{-- teszt --}}
 
 
-    <div id="app" class="bg-white">
+    <div id="app" class="">
         <header>
 
             @include('layouts.navbar')

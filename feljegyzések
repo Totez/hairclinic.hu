@@ -1,0 +1,34 @@
+feljegyzések
+
+max 1920 széles
+promt betűtipus
+
+loading screen: befade-el a logó plusz egy csík végig gut az oldalon
+
+
+
+Beérkezünk az indexre max height
+egyenként befadel a menü
+külön class legyen az animáció
+h1, h2, h3 fluid animáció 
+soronként ki van mszkolva a headline animációk:
+https://cubic-bezier.com/#.07,.78,.22,.96
+https://www.instagram.com/p/CCufuMEpphv/
+Betűnként érkezvenk be
+főoldal szekciók: h2 large body cta gomb, indikátor animációk kialszik a sütétbarna és kontúros zöld lesz előle
+a harclicik átíródik tipusra és beúszik flölé a hairclinic
+cta hover állapot:
+megvastagszik a körvonal
+
+
+termékoldal:
+aktív menü "föléhúzás" animálva megnő középről
+hover állapot besotétedik utána a kattintásből fog összemenni felülhúzássá
+mindegyik collapse nyitható
+
+
+jó tudni
+h1 large body
+
+hero position fixed és arra érkezik a tartalom
+

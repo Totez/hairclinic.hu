@@ -1,7 +1,11 @@
+@mixin load-animation($direction, $duration, $delay) {
 
-
-
-@mixin slide-text($direction, $duration, $delay) {
+	transform: translate(0px, 0px);
+	display: block;
+	animation-name:slide-#{$direction}-text;
+	animation-duration: $duration;
+	animation-delay: $delay;
+	animation-fill-mode: forwards;
 
 	$x : 0;
 	$y : 0;
@@ -20,32 +24,30 @@
 	}
 
 	@keyframes slide-#{$direction}-text {
-	  0% {
+	  from {
 	  	transform: translate($y, $x);
-	  	opacity: 0;
+		opacity: 0;
+  	   	visibility: hidden; 
 	  }
-	  100% {
+	  to {
 	  	transform: translate(0px, 0px);
 	  	opacity: 1;
+	  	visibility: visible;
 	  }
 	}
 
-	opacity: 1;
-	transform: translate(0px, 0px);
-	display: block;
-	animation-name:slide-#{$direction}-text;
-	animation-duration: $duration;
-	animation-delay: $delay;
 }
 
-.slide-in-text{
-	$from-directions: "top", "bottom", "left", "right";
 
-	@each $direction in $from-directions {
-		[data-from-direction="#{$direction}"]{
-	  		@include slide-text($direction, 0.5s, 0s);
+.load-animation{
+   	visibility: hidden;
+	&.animated{
+		$from-directions: "top", "bottom", "left", "right";
+
+		@each $direction in $from-directions {
+			[data-from-direction="#{$direction}"]{
+		  		@include load-animation($direction, 0.5s, 0s);
+			}
 		}
 	}
 }
-
-
