@@ -16,10 +16,40 @@ $container-max-widths: (
 );
 
 // Body
-$body-bg: #f8fafc;
+$body-bg: #F5FAEE;
 
 // Typography
 $font-family-sans-serif: 'Prompt', sans-serif;
 $font-size-base: 1rem;
 $font-weight-base: 300;
 $line-height-base: 1.6;
+
+
+// Colors
+$white: #FFFFFF;
+$black: #292323;
+$purple: #875FF6;
+$blue: #1E45F5;
+$green: #9BB673;
+$indigo: #6574cd;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$enable-rounded : false;
+
+$theme-colors: (
+  "dark": $black,
+  "primary": $green,
+  "light": #F5FAEE
+);
+
+.text-green{
+	color: $green;
+}
+
+$nav-height : 85px;
+$hover-color : #e2e6d5;
