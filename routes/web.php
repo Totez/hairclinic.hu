@@ -40,3 +40,69 @@ Route::get('/opinions', function () {
 Route::get('/buying', function () {
     return view('buying');
 });
+
+
+Route::get("/login", [
+    "uses" => "Auth\LoginController@showLoginForm",
+    "as" => "login"
+]);
+
+Route::post("/login", [
+    "uses" => "Auth\LoginController@login",
+    "as" => "log-in"
+]);
+
+Route::post("/logout", [
+    "uses" => "Auth\LoginController@logout",
+    "as" => "log-out"
+]);
+
+Route::get("/crawl", [
+    "uses" => "HomeController@crawl",
+    "as" => "crawl"
+]);
+
+Route::prefix("admin")
+    ->name("admin.")
+    ->namespace("Admin")
+    ->middleware("auth")
+    ->group(function () {
+
+    Route::get("/home", [
+        "uses" => "AdminController@home",
+        "as" => "home"
+    ]);
+
+    Route::get("/product/list", [
+        "uses" => "ProductController@list",
+        "as" => "product.list"
+    ]);
+
+    Route::post("/product/update", [
+        "uses" => "ProductController@update",
+        "as" => "product.update"
+    ]);
+
+    Route::prefix("page")->name("page.")->group(function () {
+
+        Route::get("/text/list", [
+            "uses" => "PageTextController@list",
+            "as" => "text.list"
+        ]);
+
+        Route::post("/text/update", [
+            "uses" => "PageTextController@update",
+            "as" => "text.update"
+        ]);
+
+        Route::get("/image/list", [
+            "uses" => "PageImageController@list",
+            "as" => "image.list"
+        ]);
+
+        Route::post("/image/update", [
+            "uses" => "PageImageController@update",
+            "as" => "image.update"
+        ]);
+    });
+});
