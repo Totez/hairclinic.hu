@@ -9,8 +9,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // $this->call(UserSeeder::class);
+    public function run() {
+        $this->call(UserSeeder::class);
+        $this->call(PageTextSeeder::class);
+        $this->call(PageImageSeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }
