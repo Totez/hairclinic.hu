@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-0">
-	<div class="container-fluid p-0">
+	<div class="container-fluid p-0 bg-light">
 		<a class="navbar-brand p-0 m-0" href="{{ url('/') }}">
 			<img src="{{ asset("images/header/HC_logo_png_feher.png") }}">
 		</a>
@@ -11,17 +11,17 @@
 
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
-					<a class="nav-link text-dark mx-3 load-animation" href="{{ url('hairclinic') }}">
+					<a class="nav-link text-dark load-animation" href="{{ url('hairclinic') }}">
 						<span data-from-direction="top">HairClinic</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark mx-3 load-animation" href="{{ url('hairclinic-extra') }}">
+					<a class="nav-link text-dark load-animation" href="{{ url('hairclinic-extra') }}">
 						<span data-from-direction="top">HairClinic<br>Extra</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark mx-3 load-animation" href="{{ url('hairclinic-men') }}">
+					<a class="nav-link text-dark load-animation" href="{{ url('hairclinic-men') }}">
 						<span data-from-direction="top">HairClinic<br>Men</span>
 					</a>
 				</li>

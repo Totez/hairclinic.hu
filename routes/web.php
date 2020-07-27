@@ -40,3 +40,6 @@ Route::get('/opinions', function () {
 Route::get('/buying', function () {
     return view('buying');
 });
+Route::get('/teszt', function () {
+    return view('teszt');
+});

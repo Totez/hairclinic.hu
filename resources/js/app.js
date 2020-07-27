@@ -1,23 +1,13 @@
 require('./bootstrap');
 // require('parallax-js');
-// window.paroller = require('paroller.js');
+window.paroller = require('paroller.js');
 // require('lax.js');
-var ScrollMagic = require('scrollmagic');
+require('./test');
 
 $(function(){
 
 
 
-
-// init controller
-var controller = new ScrollMagic.Controller();
-
-var scene = new ScrollMagic.Scene({
-  triggerElement: '#ingredients',
-  offset: 100, // start scene after scrolling for 100px
-  duration: 400 // pin the element for 400px of scrolling
-})
-.addTo(controller); // Add Scene to ScrollMagic Controller
 
 
     // $(".paroller, [data-paroller-factor]").paroller({
@@ -94,23 +84,6 @@ var scene = new ScrollMagic.Scene({
 	    }, 800);
 	});
 
-		// setTimeout(function(){
-		// 	const productNavTop = $("#product-nav").position().top;
-		// 	$(document).scroll(function(e){
-				
-		// 		const x = $(window).scrollTop() + $(window).height() - $("#buying").offset().top;
-				
-		// 		// console.log(productNavTop);
-
-		// 		if(x > 300){
-		// 			console.log(productNavTop);
-		// 			$("#product-nav").css("top", -x + 300 + 85);
-		// 		} else {
-		// 			$("#product-nav").css("top", 85);
-		// 		}
-
-		// 	});
-		// },500)
 		
 
 

@@ -35,57 +35,61 @@
 					
 						
 					@for($i=1;$i<=3;$i++)
-						<div class="bg-white my-5 p-5">
-							<div class="row p-2">
-								<div class="col-4">
-									<img src="{{ asset("images/packshot.png") }}" style="width:100px;">
-									<span>HairClinic</span>
-								</div>
-								<div class="col-3">
-									<h6 class="text-green mt-5 font-weight-light">27 kapszula</h6>
-								</div>
-								<div class="col-5">
-									<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-										<div class="col-6">
-											<img src="{{ asset("images/logo-rossmann.png") }}">
-										</div>
-										<div class="col-6 text-right">
-											<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-											<span style="font-size:1.5rem;">23 390.-</span>
+						<div id="price-{{ $i }}">
+							<div class="bg-white my-5 p-5 lax buying-content" data-lax-scale="vh 0.9, 100 1, -vh 0.9" data-lax-anchor="#price-{{ $i }}">
+								<div class="row p-2">
+									<div class="col-4">
+										<div class="buying-image">
+											<img src="{{ asset("images/packshot.png") }}" style="width:100px;">
+											<span>HairClinic</span>
 										</div>
 									</div>
-									<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-										<div class="col-6">
-											<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+									<div class="col-3">
+										<h6 class="text-green mt-5 font-weight-light">27 kapszula</h6>
+									</div>
+									<div class="col-5">
+										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
+											<div class="col-6">
+												<img src="{{ asset("images/logo-rossmann.png") }}">
+											</div>
+											<div class="col-6 text-right">
+												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
+												<span style="font-size:1.5rem;">23 390.-</span>
+											</div>
 										</div>
-										<div class="col-6 text-right">
-											<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-											<span style="font-size:1.5rem;">23 390.-</span>
+										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
+											<div class="col-6">
+												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+											</div>
+											<div class="col-6 text-right">
+												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
+												<span style="font-size:1.5rem;">23 390.-</span>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row p-2">
-								<div class="col-3 offset-4">
-									<h6 class="text-green mt-5 font-weight-light">90 kapszula</h6>
-								</div>
-								<div class="col-5">
-									<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-										<div class="col-6">
-											<img src="{{ asset("images/logo-rossmann.png") }}">
-										</div>
-										<div class="col-6 text-right">
-											<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-											<span style="font-size:1.5rem;">23 390.-</span>
-										</div>
+								<div class="row p-2">
+									<div class="col-3 offset-4">
+										<h6 class="text-green mt-5 font-weight-light">90 kapszula</h6>
 									</div>
-									<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-										<div class="col-6">
-											<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+									<div class="col-5">
+										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
+											<div class="col-6">
+												<img src="{{ asset("images/logo-rossmann.png") }}">
+											</div>
+											<div class="col-6 text-right">
+												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
+												<span style="font-size:1.5rem;">23 390.-</span>
+											</div>
 										</div>
-										<div class="col-6 text-right">
-											<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-											<span style="font-size:1.5rem;">23 390.-</span>
+										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
+											<div class="col-6">
+												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+											</div>
+											<div class="col-6 text-right">
+												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
+												<span style="font-size:1.5rem;">23 390.-</span>
+											</div>
 										</div>
 									</div>
 								</div>

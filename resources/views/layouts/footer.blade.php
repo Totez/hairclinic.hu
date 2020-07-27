@@ -1,6 +1,6 @@
-<div class="container-fluid p-0 bg-light p-5" style="position: relative;z-index: 999;">
+<div class="container-fluid bg-light p-0 p-md-5" style="position: relative;z-index: 999;">
 	<div class="row my-5">
-		<div class="col-6 mx-auto">
+		<div class="col-12 col-md-6 mx-auto">
 			<nav>
 				<div class="row">
 					<div class="col-4">

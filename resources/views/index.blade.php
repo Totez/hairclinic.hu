@@ -20,17 +20,26 @@
 		</div>
 	</section>
 	
-	<section class="bg-dark vh-100 p-anim p-5">
-		<div class="container d-flex h-100 paroller">
+	<section class="bg-light vh-100 py-5">
+		<div class="container d-flex h-100 mx-auto homeProductContainer">
 			<div class="row m-auto">
 				<div class="col-4">
-					<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+					<div class="animImageContainer w-100">
+						<img class="w-100 active" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+					</div>
 				</div>
 				<div class="col-4">
 					<img class="w-100" src="{{ asset("images/packshot.png") }}">
 				</div>
 				<div class="col-4">
-					<h4>HairClinic</h4>
+
+					<h4 class="load-animation">
+						<span data-from-direction="top">
+							HairClinic
+						</span>
+					</h4>
 					<p class="text-green" style="font-style:italic;">
 						Búzacsíraolajjal és<br>
 						aranyköles-kivonattal a haj<br>
@@ -41,18 +50,28 @@
 			</div>
 		</div>
 	</section>
-	
-	<section class="bg-light vh-100 p-anim py-5">
-		<div class="container d-flex h-100 paroller">
+	<section class="bg-light vh-100 py-5">
+		<div class="container d-flex h-100 mx-auto homeProductContainer">
 			<div class="row m-auto">
 				<div class="col-4">
-					<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+					<div class="animImageContainer w-100">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100 active" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+					</div>
 				</div>
 				<div class="col-4">
 					<img class="w-100" src="{{ asset("images/packshot.png") }}">
 				</div>
 				<div class="col-4">
-					<h4>HairClinic2</h4>
+					<h4 class="load-animation">
+						<span data-from-direction="right" style="font-size:2rem;">
+							Extra
+						</span>
+						<span data-from-direction="top">
+							HairClinic
+						</span>
+					</h4>
 					<p class="text-green" style="font-style:italic;">
 						Búzacsíraolajjal és<br>
 						aranyköles-kivonattal a haj<br>
@@ -63,18 +82,28 @@
 			</div>
 		</div>
 	</section>
-	
-	<section class="bg-light vh-100 p-anim py-5">
-		<div class="container d-flex h-100 paroller">
+	<section class="bg-light vh-100 py-5">
+		<div class="container d-flex h-100 mx-auto homeProductContainer">
 			<div class="row m-auto">
 				<div class="col-4">
-					<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+					<div class="animImageContainer w-100">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100" src="{{ asset("images/products/hairclinic_image.png") }}">
+						<img class="w-100 active" src="{{ asset("images/products/hairclinic_image.png") }}">
+					</div>
 				</div>
 				<div class="col-4">
 					<img class="w-100" src="{{ asset("images/packshot.png") }}">
 				</div>
 				<div class="col-4">
-					<h4>HairClinic3</h4>
+					<h4 class="load-animation">
+						<span data-from-direction="right" style="font-size:2rem;">
+							Men
+						</span>
+						<span data-from-direction="top">
+							HairClinic
+						</span>
+					</h4>
 					<p class="text-green" style="font-style:italic;">
 						Búzacsíraolajjal és<br>
 						aranyköles-kivonattal a haj<br>
