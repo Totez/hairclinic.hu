@@ -27,4 +27,7 @@ class Product extends Model {
         "dm",
         "rossmann"
     ];
+    protected $casts = [
+        "price" => "int"
+    ];
 }

@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entities\Product;
 use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
 
 class ProductController extends AdminController {
 
@@ -26,9 +25,9 @@ class ProductController extends AdminController {
             "products" => "required|array",
             "products.*.key" => "required|string|max:255",
             "products.*.name" => "required|string|max:255",
-            "products.*.package" => "required|string|max:255",
-            "products.*.dm" => "required|numeric",
-            "products.*.rossmann" => "required|numeric"
+            "products.*.price" => "required|numeric",
+            "products.*.url" => "required|string",
+            "products.*.selector" => "required|string"
         ]);
 
         foreach ($validatedData["products"] as $productData) {
@@ -40,14 +39,14 @@ class ProductController extends AdminController {
             }
 
             $product->name = $productData["name"];
-            $product->package = $productData["package"];
-            $product->dm = $productData["dm"];
-            $product->rossmann = $productData["rossmann"];
+            $product->price = $productData["price"];
+            $product->url = $productData["url"];
+            $product->selector = $productData["selector"];
             $product->save();
         }
 
         $request->session()->flash("success", "Termékek sikeresen elmentve.");
 
-        return response()->redirectToRoute("admin.product.list");
+        // return response()->redirectToRoute("admin.product.list");
     }
 }

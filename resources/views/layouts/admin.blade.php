@@ -10,24 +10,13 @@
     <title>{{ config('app.name', 'hairclinic.hu') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/admin.js') }}" defer></script> --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
-
-{{-- teszt --}}
-<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 100;">
-    <div class="d-sm-none">XS</div>
-    <div class="d-none d-sm-block d-md-none">SM</div>
-    <div class="d-none d-md-block d-lg-none">MD</div>
-    <div class="d-none d-lg-block d-xl-none">LG</div>
-    <div class="d-none d-xl-block d-xxl-none">XL</div>
-    <div class="d-none d-xxl-block">XXL</div>
-</div>
-{{-- teszt --}}
 
 
     <div id="app" class="bg-white">

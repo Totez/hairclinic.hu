@@ -17,9 +17,9 @@ class CreateProductTable extends Migration
             $table->id();
             $table->string("key")->unique();
             $table->string("name");
-            $table->string("package");
-            $table->string("dm");
-            $table->string("rossmann");
+            $table->string("price");
+            $table->string("url");
+            $table->string("selector");
             $table->timestamps();
         });
     }

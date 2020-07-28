@@ -44,8 +44,7 @@
 							<p class="my-5 text-green" style="font-style: italic;">
 								A HairClinic® Extra tabletta a hajgyökeret olyan ásványi anyagokkal és vitaminokkal táplálja, amelyek hozzájárulnak az egészséges hajszerkezet megőrzéséhez.
 								A retard filmtabletta különlegessége, hogy a benne lévő tápanyagmennyiséget több órán keresztül, elnyújtva juttatja a véráramba. Ezáltal folyamatosan ellátja a sejteket tápanyagokkal.
-							</p>
-							<p class="dm">Rossmann ár: {{ $price }}</p>
+							</p>					
 						</div>
 					</div>
 				</div>
@@ -126,44 +125,63 @@
 							</div>
 						</div>
 
-						<h6 class="text-green mt-5 font-weight-light">27 kapszula</h6>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0">
+{{-- 						<p class="dm">Rossmann hc_extra_27 ár: {{ $price['rossmann']['hc_extra_27'] ?? '' }}</p>
+						<p class="dm">Rossmann hc_men_60 ár: {{ $price['rossmann']['hc_men_60'] ?? '' }}</p>
+						<p class="dm">Dm hc_extra_27 ár: {{ $price['dm']['hc_extra_27'] ?? '' }}</p>
+						<p class="dm">Dm hc_men_60 ár: {!! $price['dm']['hc_men_60'] ?? '' !!}</p> --}}
+
+
+						<h6 class="text-green mt-5 font-weight-light">30 kapszula</h6>
+						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
 							<div class="col-6">
 								<img src="{{ asset("images/logo-rossmann.png") }}">
 							</div>
-							<div class="col-6 text-right">
+							<div class="col-6 justify-content-end align-items-center d-flex">
 								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">23 390.-</span>
+								<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_30'][0], 0, ",", " ") }}.-</span>
 							</div>
+							@isset($price['rossmann']['hc_30'][1])
+								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_30'][1]->format("Y-m-d") }}</span>
+							@endisset
 						</div>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0">
+						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
 							<div class="col-6">
 								<img src="{{ asset("images/logo-drogerie-markt.png") }}">
 							</div>
-							<div class="col-6 text-right">
+							<div class="col-6 justify-content-end align-items-center d-flex">
 								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">23 390.-</span>
+								<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_30'][0], 0, ",", " ") }}.-</span>
 							</div>
+							@isset($price['dm']['hc_30'][1])
+								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_30'][1]->format("Y-m-d") }}</span>
+							@endisset
 						</div>
 
 						<h6 class="text-green mt-5 font-weight-light">90 kapszula</h6>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0">
+						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
 							<div class="col-6">
 								<img src="{{ asset("images/logo-rossmann.png") }}">
 							</div>
-							<div class="col-6 text-right">
+							<div class="col-6 justify-content-end align-items-center d-flex">
 								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">23 390.-</span>
+								<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_90'][0], 0, ",", " ") }}.-</span>
+
 							</div>
+							@isset($price['rossmann']['hc_90'][1])
+								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_90'][1]->format("Y-m-d") }}</span>
+							@endisset
 						</div>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0">
+						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
 							<div class="col-6">
 								<img src="{{ asset("images/logo-drogerie-markt.png") }}">
 							</div>
-							<div class="col-6 text-right">
+							<div class="col-6 justify-content-end align-items-center d-flex">
 								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">23 390.-</span>
+								<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_90'][0], 0, ",", " ") }}.-</span>
 							</div>
+							@isset($price['dm']['hc_90'][1])
+								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
+							@endisset
 						</div>
 					</div>
 				</div>
