@@ -33,7 +33,7 @@
         <main>
 
             @if(Session::has("success"))
-                {{ Session::get("success") }}
+                <p class="alert alert-success">{{ Session::get("success") }}</p>
             @endif
 
             @yield('content')

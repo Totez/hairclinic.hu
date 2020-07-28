@@ -7,20 +7,34 @@
             @foreach($products as $product)
                 <div class="form-group row product">
 
+                    <input type="hidden" name="products[{{ $loop->index }}][key]" value="{{ $product->key }}">
+
                     <div class="form-group">
-                        <input type="text" class="form-control" disabled name="products[{{ $loop->index }}][key]" value="{{ $product->key }}" required>
+                        <input type="text" class="form-control" disabled value="{{ $product->key }}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="products[{{ $loop->index }}][name]" value="{{ $product->name }}" required>
+                        <input type="text" class="form-control @error("products.$loop->index.name") is-invalid @enderror" name="products[{{ $loop->index }}][name]" value="{{ $product->name }}" required>
+                        @error("products.$loop->index.name")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="products[{{ $loop->index }}][price]" value="{{ $product->price }}" required>
+                        <input type="text" class="form-control @error("products.$loop->index.price") is-invalid @enderror" name="products[{{ $loop->index }}][price]" value="{{ $product->price }}" required>
+                        @error("products.$loop->index.price")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="products[{{ $loop->index }}][url]" value="{{ $product->url }}" required>
+                        <input type="text" class="form-control @error("products.$loop->index.url") is-invalid @enderror" name="products[{{ $loop->index }}][url]" value="{{ $product->url }}" required>
+                        @error("products.$loop->index.url")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="products[{{ $loop->index }}][selector]" value="{{ $product->selector }}" required>
+                        <input type="text" class="form-control @error("products.$loop->index.selector") is-invalid @enderror" name="products[{{ $loop->index }}][selector]" value="{{ $product->selector }}" required>
+                        @error("products.$loop->index.selector")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                 </div>

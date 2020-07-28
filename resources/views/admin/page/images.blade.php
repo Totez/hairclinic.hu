@@ -4,24 +4,38 @@
     <form method="POST" action="{{ route("admin.page.image.update") }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group page-images">
-            <div class="form-group row page-image">
-                @php($pageImage = $pageImages["home.img"])
+            @foreach($pageImages as $pageImage)
+                <div class="form-group row page-image">
 
-                <input type="hidden" name="page_images[0][key]" value="{{ $pageImage->key }}" required>
+                    <input type="hidden" name="page_images[{{ $loop->index }}][key]" value="{{ $pageImage->key }}" required>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" name="page_images[0][page]" value="{{ $pageImage->page }}" required>
+                    <div class="form-group">
+                        <input type="text" class="form-control" disabled value="{{ $pageImage->key }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control @error("page_images.$loop->index.page") is-invalid @enderror" name="page_images[{{ $loop->index }}][page]" value="{{ $pageImage->page }}" required>
+                        @error("page_images.$loop->index.page")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control @error("page_images.$loop->index.name") is-invalid @enderror" name="page_images[{{ $loop->index }}][name]" value="{{ $pageImage->name }}" required>
+                        @error("page_images.$loop->index.name")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control @error("page_images.$loop->index.file") is-invalid @enderror" name="page_images[{{ $loop->index }}][file]">
+                        @error("page_images.$loop->index.file")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <img src="{{ asset($pageImage->path) }}">
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control " name="page_images[0][name]" value="{{ $pageImage->name }}" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="file" class="form-control" name="page_images[0][file]">
-                    <img src="{{ asset($pageImage->path) }}">
-                </div>
-            </div>
+            @endforeach
         </div>
         <input type="submit" value="Mentés">
     </form>

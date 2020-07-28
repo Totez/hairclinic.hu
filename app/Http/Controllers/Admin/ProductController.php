@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entities\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends AdminController {
 
@@ -21,8 +22,7 @@ class ProductController extends AdminController {
 
     public function update(Request $request) {
 
-        $validatedData = $this->validate($request, [
-            "products" => "required|array",
+        $validatedData = $request->validate([
             "products.*.key" => "required|string|max:255",
             "products.*.name" => "required|string|max:255",
             "products.*.price" => "required|numeric",
@@ -47,6 +47,6 @@ class ProductController extends AdminController {
 
         $request->session()->flash("success", "Termékek sikeresen elmentve.");
 
-        // return response()->redirectToRoute("admin.product.list");
+        return response()->redirectToRoute("admin.product.list");
     }
 }
