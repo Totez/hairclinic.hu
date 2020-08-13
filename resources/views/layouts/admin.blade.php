@@ -24,7 +24,6 @@
             <form id="logout-form" action="{{ route("log-out") }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            <a href="{{ route("admin.home") }}">Dashboard</a>
             <a href="{{ route("admin.page.text.list") }}">Szövegek az oldalon</a>
             <a href="{{ route("admin.page.image.list") }}">Képek az oldalon</a>
             <a href="{{ route("admin.product.list") }}">Termékek</a>

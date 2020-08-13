@@ -32,3 +32,43 @@ h1 large body
 
 hero position fixed és arra érkezik a tartalom
 
+Megbeszélés 
+
+hariclinic logó nem jó
+productoknák vastagabb a bet kissebb line-height
+menüpontok csak fadeljenek be
+vásárlás hettere jobbról balre megnő
+parallax hero háttér
+slogenes rész legyen magasabb 75vh
+kapjon ez is paralax csúszást felfelé
+product név lentről felfelé
+animációk lassítása
+hairclic befadel
+"extra" lentről befadel
+text csak fadeel
+csak befadel 1.re
+lábléc legyen magasabb
+footer 50vh legyen
+
+
+
+
+
+
+termékoldal packshot és menü középen legyen
+termékoldalon 3 féle méretű kép
+csak akkor  fadeljen be a szöveg a lenyitható elemkenék amikor már betöltődött
+becsukásnák ugyanaz
+ugyanezek a blokkok messzebb legyenek egymástól (paddingbottom 5em)
+görgetés közben fadeineljenek a termékoldalon a hatóanyagoknál
+árak egyforma méretűek legyenekl
+keretek legyenek zöld hoverek
+százalék jel csak akkor van ha akciós az ár
+
+jó tudni oldal
+jó tudni headline position fixed legyen
+
+vásárlásnál a packshotok legyenek nagyobbak
+termékkép mozgása nem kell a vásárlásnál
+nagyítás nem kell a vásárlásnál
+egymás után fadeljenek be majd a cuccok egy kártyán belül

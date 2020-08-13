@@ -22,8 +22,7 @@ class PageTextController extends AbstractController {
 
     public function update(Request $request) {
 
-        $validatedData = $this->validate($request, [
-            "page_texts" => "required|array",
+        $validatedData = $request->validate([
             "page_texts.*.key" => "required|string|max:255",
             "page_texts.*.page" => "required|string|max:255",
             "page_texts.*.name" => "required|string|max:255",

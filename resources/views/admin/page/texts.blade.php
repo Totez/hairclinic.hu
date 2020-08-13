@@ -7,7 +7,7 @@
             @foreach($pageTexts as $pageText)
                 <div class="form-group row page-text">
 
-                    <input type="hidden" name="page_texts[0][key]" value="{{ $pageText->key }}" required>
+                    <input type="hidden" name="page_texts[{{ $loop->index }}][key]" value="{{ $pageText->key }}" required>
                     
                     <div class="form-group">
                         <input type="text" class="form-control" disabled value="{{ $pageText->key }}" required>

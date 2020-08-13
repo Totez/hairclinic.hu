@@ -7,15 +7,15 @@
 
 		<div class="container">
 			
-			<div class="row">
+			<div class="row vh-100">
 				
-				<div class="col-8 mx-auto">
+				<div class="col-10 mx-auto">
 					
 
 					<div class="position-relative py-5">
 						<img class="w-100" src="{{ asset("images/oval.png") }}">
 						<p class="text-center d-flex w-100 h-100" style="position: absolute;top:0;left:0;">
-							<span class="m-auto" style="font-size:1.5rem;font-weight:normal;font-style:italic;">
+							<span class="m-auto" style="font-size:33.9px;font-weight:normal;font-style:italic;">
 								Segítünk, hogy melyik webshopban <br>
 								mennyibe kerül* a neked kellő termék
 							</span>
@@ -30,67 +30,91 @@
 						Hibát észleltél? Írd meg nekünk!
 					</span>
 				</div>
-				
+			</div>
+			<div class="row">	
 				<div class="col-12 my-4 mx-auto">
 					
 						
 					@for($i=1;$i<=3;$i++)
-						<div id="price-{{ $i }}">
-							<div class="bg-white my-5 p-5 lax buying-content" data-lax-scale="vh 0.9, 100 1, -vh 0.9" data-lax-anchor="#price-{{ $i }}">
+						<div id="price-{{ $i }}" class="lazy-load-container position-relative" >
+							<div class="bg-white-div h-100"></div>
+							<div class="my-5 p-5 buying-content">
 								<div class="row p-2">
-									<div class="col-4">
-										<div class="buying-image">
-											<img src="{{ asset("images/packshot.png") }}" style="width:100px;">
-											<span>HairClinic</span>
+									<div class="col-5">
+										<div class="buying-image lazy-load">
+											<img src="{{ asset("images/packshot.png") }}" style="width:200px;">
+											<span style="font-size:2rem;">HairClinic</span>
 										</div>
 									</div>
-									<div class="col-3">
-										<h6 class="text-green mt-5 font-weight-light">27 kapszula</h6>
+									<div class="col-2">
+										<h6 class="text-green mt-5 font-weight-light lazy-load">27 kapszula</h6>
 									</div>
 									<div class="col-5">
-										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-											<div class="col-6">
+										<a target="blank" href="https://rossmann.hu">
+											<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative lazy-load">
+											<div class="col-7">
 												<img src="{{ asset("images/logo-rossmann.png") }}">
 											</div>
-											<div class="col-6 text-right">
-												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-												<span style="font-size:1.5rem;">23 390.-</span>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
-										</div>
-										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-											<div class="col-6">
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">5 000.-</span>
+											</div>
+											</div>
+										</a>
+										<a target="blank" href="https://dm.hu">
+											<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative lazy-load">
+											<div class="col-7">
 												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
 											</div>
-											<div class="col-6 text-right">
-												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-												<span style="font-size:1.5rem;">23 390.-</span>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
-										</div>
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">10 000.-</span>
+											</div>
+											</div>
+										</a>
 									</div>
 								</div>
 								<div class="row p-2">
-									<div class="col-3 offset-4">
-										<h6 class="text-green mt-5 font-weight-light">90 kapszula</h6>
+									<div class="col-2  offset-5">
+										<h6 class="text-green mt-5 font-weight-light lazy-load">90 kapszula</h6>
 									</div>
 									<div class="col-5">
-										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-											<div class="col-6">
-												<img src="{{ asset("images/logo-rossmann.png") }}">
+										<a target="blank" href="https://rossmann.hu">
+											<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative lazy-load">
+												<div class="col-7">
+													<img src="{{ asset("images/logo-rossmann.png") }}">
+												</div>
+												<div class="col justify-content-end text-right">
+													<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+												</div>
+												<div class="col-4 justify-content-end align-items-center d-flex">
+													<span style="font-size:1.5rem;">5 000.-</span>
+												</div>
+												{{-- @isset($price['dm']['hc_90'][1])
+													<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
+												@endisset --}}
 											</div>
-											<div class="col-6 text-right">
-												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-												<span style="font-size:1.5rem;">23 390.-</span>
+										</a>
+										<a target="blank" href="https://dm.hu">
+											<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative lazy-load">
+												<div class="col-7">
+													<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+												</div>
+												<div class="col justify-content-end text-right">
+													<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+												</div>
+												<div class="col-4 justify-content-end align-items-center d-flex">
+													<span style="font-size:1.5rem;">5 000.-</span>
+												</div>
+												{{-- @isset($price['dm']['hc_90'][1])
+													<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
+												@endisset --}}
 											</div>
-										</div>
-										<div class="row border w-100 px-1 py-3 align-items-center my-3 hc-hover paroller">
-											<div class="col-6">
-												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
-											</div>
-											<div class="col-6 text-right">
-												<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-												<span style="font-size:1.5rem;">23 390.-</span>
-											</div>
-										</div>
+										</a>
 									</div>
 								</div>
 							</div>

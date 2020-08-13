@@ -1,27 +1,37 @@
 require('./bootstrap');
-// require('parallax-js');
-window.paroller = require('paroller.js');
-// require('lax.js');
-require('./test');
+var lax = require('lax.js');
+// require('./test');
+
+
+var navHeight = 104;
+var counter;
+var lastScrollTop = 0;
+var currentSection = 0;
+var isScroll = true;
+var animationLoaded = false;
+
+
 
 $(function(){
+	// Lax.js inicializáslá
+	window.onload = function() {
 
+		lax.setup({
+		    breakpoints: { small: 0, large: 992 }
+		})
 
+		const updateLax = () => {
+			lax.update(window.scrollY)
+			window.requestAnimationFrame(updateLax)
+		}
 
+		window.requestAnimationFrame(updateLax)
 
+	}
 
-    // $(".paroller, [data-paroller-factor]").paroller({
-    //     factor: 0.1,            // multiplier for scrolling speed and offset
-    //     factorXs: 0,           // multiplier for scrolling speed and offset
-    //     type: 'foreground',     // background, foreground
-    //     direction: 'horizontal', // vertical, horizontal
-    //     transition: 'transform 0s' // CSS transition
-    // });
-
-
-	//loading
+	//Kezdeti oldalbetöltés késleltetve
 	setTimeout(function(){
-		if($(".loadingPage").length !== 0){
+		if($(".loadingPage").length > 0){
 
 			$(".loadingPage img").fadeIn(300, function(){
 
@@ -34,35 +44,71 @@ $(function(){
 					});
 
 
-				},0)
+				},500)
 
 			});
 		} else {
 			visibleAnimatedItem(false);
 		}
-	},0)
+	},500)
 
 
 	function visibleAnimatedItem(animation){
 		if(animation){
 			backCounter(0, $(".load-animation").length, function(){
 				// console.log("Vége");
+				animationLoaded = true;
+				$("body").removeClass("disable-scrolling");
+
 			},function(i){
-				$($(".load-animation")[i]).addClass("animated");
+				const elem = $($(".load-animation")[i]);
+				// console.log(elem);
+
+
+				if(elem.hasClass("fadeIn")){
+					elem.animate({
+						opacity : 1
+					},100);
+					elem.addClass("w-animate");
+				}
+
+
+				if(elem.hasClass("slideIn")) {
+					elem.addClass("animated");
+				}
+
+
+				if(elem.hasClass("widthIn")) {
+					elem.animate({
+						right : 0
+					},100, function(){
+						setTimeout(function(){
+							$("span", elem).animate({
+								opacity : 1
+							},200);
+						},200)
+					});
+				}
+
+
+
 			});
 		} else{
 			$(".load-animation").css({
+				transition:0,
 				visibility : "visible",
 				opacity : 1
+			});
+			$(".widthIn").css({
+				transition:0,
+				right : 0,
 			});
 		}
 	}
 
-
-
-
-	let counter;
-	function backCounter(x, y, onEnd, onCount){
+	//egyszerű számláló
+	// paraméterek: mettől, meddig, callback, callback, delay
+	function backCounter(x, y, onEnd, onCount, delay = 300){
 		clearInterval(counter);
 		counter = setInterval(function(){
 			if(x == y){
@@ -72,7 +118,7 @@ $(function(){
 				onCount(x);
 			}
 			x++;
-		},150);
+		},delay);
 	}
 
 	$("a.scroll-to-element").click(function(e) {
@@ -84,104 +130,295 @@ $(function(){
 	    }, 800);
 	});
 
+	//collapse részek
+	$('.hc-collapse-content').on('shown.bs.collapse', function (e) {
+		const el = $(this);
+		$(".content", el).animate({
+			opacity : 1
+		}, 500);
+	});
+
+	$('.hc-collapse-content').on('hide.bs.collapse', function (e) {
+		const el = $(this);
+		if(!el.hasClass("can-collapse")){
+			console.log("if");
+			el.addClass("can-collapse");
+
+			$(".content", el).animate({
+				opacity : 0
+			}, 500, function(){
+				$(el).collapse('hide');
+			});
+
+			return false;
+		} else {
+			console.log("else");
+			el.removeClass("can-collapse");
+			return true;
+		}
+	});
+
+	$(document).scroll(function(){
+		const elements = $('.lazy-load-container'); 
 		
+		if(elements.length > 0){
+			// console.log("------------------------------------");
+			$.each(elements, function(index, el) {
+				const llContainerTop =  $(document).scrollTop() + $(window).height() - $(el).offset().top;
+				// console.log(llContainerTop, $(el).hasClass('loaded'));
+				if(!$(el).hasClass('loading')){
+					if(llContainerTop > 200){
 
+						const lazyLoadElements = $(".lazy-load", el);
+						// $.each(lazyLoadElements, function(index, elem) {
+						// 	// console.log(elem);
 
-	// var scene = document.getElementById('scene');
-	// var parallaxInstance = new Parallax(scene, function(){
-	// 	invertY : false
-	// });
+							backCounter(0, lazyLoadElements.length, function(){
+								// console.log("Végig ért az összesen");
+							}, function(i){
+								const elem = $($(lazyLoadElements)[i]);
+								// console.log("megjelenítés: ", elem);
+								elem.animate({
+									opacity : 1
+								},300);
+							}, 200);
+						// });
 
-
-
-
-
-// 	var breakPoints = {}
-// 	var i = 0;
-
-// 	$.each($('.p-anim'), function(index, el) {
-// 		breakPoints[index] = {
-// 			top : $(el).offset().top,
-// 			bottom : $(el).offset().top + $(el).height(),
-// 			elem : $(el)
-// 		};
-// 	});
-
-
-
-// $(document).scroll(function(e){
-// 		const elem = $($('.p-anim')[i]);
-
-
-// 		const bodyteteje = $(window).scrollTop();
-// 		const bodyalja = $(window).scrollTop() + $(window).height();
-
-// 		const elemteteje = bodyteteje - elem.position().top;
-// 		const elemalja = bodyteteje + elem.height();
-
-// 		// console.log(bodyteteje, bodyalja);
-// 		// console.log(elemteteje, elemalja);
-// 		console.log(bodyteteje);
-// 		if(elemteteje > (-$(window).height()) && (elemteteje + elem.height()) < (1800)  ){
-// 			console.log("x");
-// 		}
-
-// });
-
-
-
-
-	// var i = 0;
-	// var isScroll = true;
-	// $(document).scroll(function(e){
-	// 	const docTop = $(document).scrollTop();
-	// 	const docBottom = $(document).scrollTop() + $(window).height();
-	// 	const elemScrollTop = docTop - breakPoints[0].elem.offset().top;
-
-	// 	// if(0 < elemScrollTop){
-	// 		$.each(breakPoints, function(index, section){
-	// 			if(section.top < docBottom && section.top > docTop){
-	// 				if(isScroll){
-	// 					isScroll = false;
-	// 					console.log(index);
-	// 					i++;
-	// 				}
-	// 				if(i == index){
-	// 					isScroll = true;
-	// 				}
-	// 			}
-	// 		})
-	// 	// }
-	// });
-
-
-
-
-	// var i = 0;
-	// var isScroll = true;
-	// $(document).scroll(function(e){
-	// 	console.log(i + ". elem figyelése..");
-	// 	const elem = $($('.p-anim')[i]);
-	// 	const docScrollTop = $(document).scrollTop();
-	// 	const elemScrollTop = docScrollTop - elem.offset().top;
-
-	// 		if(0 <= elemScrollTop){
-	// 			if(isScroll){
-	// 				isScroll = false;
-	// 				elem.addClass("p-anim-fixed")
-	// 				console.log("fixed");
-	// 				i++;
-	// 			}
-	// 		} else {
-	// 			elem.removeClass("p-anim-fixed")
-	// 			console.log("nem fixed");
-	// 		}
-
-
-	// 	console.log(elemScrollTop);
-	// });
-
-
-
+						//ha megkapja ezt a classt, többször az ő gyrekeit már nem figyeljük
+						$(el).addClass("loading");
+					}
+				}
+			});
+		}	
+	});
 
 })
+
+
+
+$(function(){
+
+	$.each($('.homeProductContainer'), function(index, el) {
+		$(el).attr("data-count", index);
+	});
+
+
+	//autoscroll
+	const sections = $("section");
+	$.each(sections, function(index, section) {
+		$(section).attr("data-current-section", index);
+	});
+
+	$(document).scroll(function(e){
+		// console.log("scrolling...");
+
+
+		//scrollozás irányának lekérése
+		var st = $(this).scrollTop();
+		if (st > lastScrollTop){
+		   scrollDirection = "down";
+		} else {
+		  scrollDirection = "up";
+		}
+		lastScrollTop = st;
+
+
+		//autoscroll
+		if(animationLoaded){
+			const bodyScrollTop = $(document).scrollTop();
+			const sections = $(document).find('[data-current-section]');
+			if(isScroll){
+				isScroll = false;
+				$("body").addClass("disable-scrolling");
+
+				if(scrollDirection == "up"){
+					if(currentSection > 0){
+						currentSection--;
+					}
+				} else {
+					if(currentSection < sections.length){
+						currentSection++;
+					}
+				}
+
+				e.preventDefault();
+
+				console.log("autoscrolling...");
+
+				const targetSection = $(sections[currentSection]);
+				let duration = targetSection.data("slide-duration");
+				if(duration == undefined) duration = 500;
+
+				$([document.documentElement, document.body]).animate({
+				    scrollTop: targetSection.offset().top
+			    }, duration, function(){
+			    	setTimeout(function(){
+				    	$("body").removeClass("disable-scrolling");
+				    	isScroll = true;
+			    	},500);
+			    });
+			}
+		}
+
+
+		// Termékoldali scroll események
+		const productNav = $("#product-nav");
+		if(productNav.length > 0){
+			const footerTop = $('footer').offset().top - $(document).scrollTop() - $(window).height();
+			if(footerTop < 0){
+				productNav.css({
+					top: footerTop + navHeight
+				});
+			}
+		}
+
+
+		//kinyíló fehér hátterek
+		if($(".bg-white-div").length > 0){
+			const bgWhiteDiv = $(".bg-white-div");
+			$.each(bgWhiteDiv, function(index, el) {
+				const bgDivTop =  $(document).scrollTop() + $(window).height() - $(el).offset().top;
+				if(bgDivTop > 0){
+					const max = 0.8 * $(window).height() - navHeight;
+					const percent = (bgDivTop / max) * 100;
+					
+					if(percent <= 100){
+						if(!$(el).hasClass('sizing')){
+							$(el).addClass('sizing');
+						}
+						
+						if(!$(el).hasClass('sized')){
+							$(el).css({
+								width : percent + "%",
+								opacity : percent + "%"
+							});
+						}
+
+					} else {
+						if(!$(el).hasClass('sized')){
+							$(el).addClass('sized');
+							$(el).css({
+								width :  "100%",
+								opacity : "100%"
+							});
+						}
+					}
+				}	
+			});
+		}
+
+
+		//főoldali scroll események
+		const elements = $('.homeProductContainer'); 
+		if(elements.length > 0){
+			
+			$.each(elements, function(index, el) {
+				if(!$(el).hasClass("wasFixed")){
+
+					const $el = $(el);
+					const isFixed = $el.hasClass('active');
+					const parentScrollTop = ($el.parents("section").offset().top - $(document).scrollTop() - navHeight);
+					const productCount = $(el).data("count");
+
+					if (parentScrollTop < 0 && !isFixed){
+						$('.homeProductContainer.active').addClass('wasFixed').removeClass('active');
+						$el.addClass("active");
+						if(index == 0){
+							$(el).addClass('fixedElement');
+						}
+						
+						productScroller(productCount);
+
+					}
+
+					if (parentScrollTop > 0 && isFixed){
+						$(".wasFixed").removeClass('wasFixed')
+						$el.removeClass('active');
+						if(index == 0){
+							$(el).removeClass('fixedElement');
+						}
+					}
+					const footerTop = $('footer').offset().top - $(document).scrollTop() - $(window).height();
+
+					if(footerTop < 0){
+						$(".fixedElement").css({
+							top: navHeight + footerTop
+						})
+					}
+				}
+			});
+		}
+		
+	});
+})
+
+
+
+
+
+
+//főoldali parallax termék csere
+function productScroller(productCount){
+
+	if(productCount == 0){
+		$("#packshots").animate({
+			opacity : 1
+		}, 600, function(){
+
+			setTimeout(function(){
+
+				$("#product-images").animate({
+					opacity : 1
+				},600);
+
+			},100);
+
+			setTimeout(function(){
+
+				$("#descriptions").animate({
+					opacity : 1
+				},600);
+
+			},800);
+
+		});
+	}
+
+	$('.homeProductContainer .slide-image').removeClass("active");
+	$('.homeProductContainer .slide-image[data-count="' + productCount + '"]').addClass("active").animate({
+		height:"unset"
+	},500);
+
+	$('.homeProductContainer .packshot').removeClass("active");
+	$('.homeProductContainer .packshot[data-count="' + productCount + '"]').addClass("active");
+
+	$('.products .title').removeClass("active");
+	$('.products .title[data-count="' + productCount + '"]').addClass("active");
+
+	$('.product-descriptions .description').removeClass("active");
+	$('.product-descriptions .description[data-count="' + productCount + '"]').addClass("active");
+}
+
+
+if($("#product-nav").length > 0){
+	setTimeout(function(){
+		const productNavTop = $("#product-nav").position().top;
+		$(document).scroll(function(e){
+
+			const $productNav = $("#product-nav-content");  //record the elem so you don't crawl the DOM everytime  
+			const productNavTop = $productNav.position().top; // passing "true" will also include the top and bottom margin
+			const productNavBottom = $productNav.position().top + $productNav.outerHeight(true); // passing "true" will also include the top and bottom margin
+			const footerScrollTop = $(document).height() - $("footer").outerHeight(true) - $(window).scrollTop() - 100; 
+
+			if(productNavBottom > footerScrollTop){
+				console.log("asd");
+				$("#product-nav").css("top", footerScrollTop - $productNav.outerHeight(true) + navHeight);
+			} else {
+				$("#product-nav").css("top", navHeight);
+			}
+		});
+	},500)
+}
+
+
+

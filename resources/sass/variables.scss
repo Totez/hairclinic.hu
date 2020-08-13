@@ -4,15 +4,15 @@ $grid-breakpoints: (
     md: 768px,
     lg: 1024px,
     xl: 1366px,
-    xxl: 1920px
+    xxl: 1640px
 );
 
 $container-max-widths: (
  	sm: 576px,
  	md: 768px,
  	lg: 1024px,
- 	xl: 1366px,
- 	xxl: 1440px
+ 	xl: 1300px,
+ 	xxl: 1640px
 );
 
 // Body
@@ -48,8 +48,11 @@ $theme-colors: (
 );
 
 .text-green{
-	color: $green;
+  color: $green;
+}
+.border-green{
+	border: solid 1px #E2EAD5!important;
 }
 
-$nav-height : 85px;
+$nav-height : 104px;
 $hover-color : #e2e6d5;

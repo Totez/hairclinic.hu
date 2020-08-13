@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/',[
+    "uses" => "HomeController@home",
+    "as" => "home"
+]);
 
 Route::get('/hairclinic', [
     "uses" => "HomeController@hairclinic",

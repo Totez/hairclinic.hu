@@ -10,14 +10,14 @@
 			<div class="row">
 				
 				<div class="col-11 col-md-8 bg-white mx-auto py-5">
-					<h1 class="ml-md--100">Jó tudni</h1>
+					<h1 class="ml-md--100 position-fixed">Jó tudni</h1>
 
 					<div class="row">
 						
 						<div class="col-12 col-md-7 offset-md-4">
 
-							<p class="text-green py-5" style="font-style:italic;">
-							    {{ $pageTexts["goodtoknow.first"]->text }}
+							<p class="text-green py-5 text-lg" style="font-style:italic;">
+							    A hajképző folyamat központja a fejbőr alatt található hajgyökér, amely a hajszálak növekedéséért és rögzítéséért felelős. A hajgyökeret rugalmas szövetek veszik körül (ún. kollagén-burok). A hajszálerek, amelyek a hajképzéshez szükséges tápanyagokat szállítják, e szöveteken keresztül jutnak be a hajgyökérbe. Fontos, hogy a hajgyökereknek rendelkezésükre álljanak a szép és egészséges hajszálakhoz szükséges minőségű és mennyiségű tápanyagok.
                             </p>
 
 							@php
@@ -63,9 +63,9 @@
 
 							@foreach($faq as $key => $value)
 								<div class="hc-collapse">
-									<div class="py-4 px-3" style="font-size:1.5rem;" data-toggle="collapse" href="#faqCollapse-{{ $key }}" role="button" aria-expanded="false" aria-controls="faqCollapse-{{ $key }}">
-										<div class="row">
-											<div class="col-10">
+									<div style="font-size:1.5rem;" data-toggle="collapse" href="#faqCollapse-{{ $key }}" role="button" aria-expanded="false" aria-controls="faqCollapse-{{ $key }}">
+										<div class="row py-3 px-3 title">
+											<div class="col-10 text-md">
 												{{ $value["title"] }}
 											</div>
 											<div class="col-2 text-right">
@@ -73,8 +73,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="collapse" id="faqCollapse-{{ $key }}">
-										<div class="m-0 py-3 px-3 text-green">
+									<div class="collapse hc-collapse-content fadeIn" id="faqCollapse-{{ $key }}">
+										<div class="content m-0 py-3 px-3 text-green text-md">
 											{!! $value["content"] !!}
 										</div>
 									</div>

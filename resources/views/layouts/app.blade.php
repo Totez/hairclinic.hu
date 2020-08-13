@@ -18,10 +18,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body {{-- class="disable-scrolling" --}}>
 
 	{{-- teszt --}}
-		<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 100;">
+		<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 99999999;">
 			<div class="d-sm-none">XS</div>
 			<div class="d-none d-sm-block d-md-none">SM</div>
 			<div class="d-none d-md-block d-lg-none">MD</div>
@@ -32,17 +32,15 @@
 	{{-- teszt --}}
 
 
-    <div id="app" class="">
+    <div id="app">
         <header>
 
             @include('layouts.navbar')
 
         </header>
 
-        <main>
-
+        <main class="main">
             @yield('content')
-
         </main>
 
         <footer>

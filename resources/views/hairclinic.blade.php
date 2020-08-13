@@ -3,54 +3,86 @@
 
 
 	<section id="hariclinic">
+
+{{-- 		<style type="text/css">
+			.layouts{
+				opacity: 0.1;
+			}
+			.layouts:nth-child(odd){
+				background: yellowgreen;
+			}
+			.layouts:nth-child(even){
+				background: #000;
+			}
+		</style>
+		<div class="container position-absolute h-100 mx-auto" style="z-index: 1000;left:0;right:0;pointer-events: none">
+			<div class="row h-100">
+				<div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+				<div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+				<div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+				<div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+			</div>
+		</div> --}}
 		
-		<div class="container-fluid">
-			
-			<div class="row">
-				
-				<div id="product-nav" class="d-none d-md-block col-4 position-fixed fixed-col-left h-100 bg-white" style="top:85px;padding-left:8.3333%;">
-					<div class="row">
-						<div class="col">
-							<div class="row" style="margin-top:23%;" id="product-nav-content">
-								<div class="col-3 my-auto">
-									<nav class="nav product-submenu">
-										<ul class="navbar-nav">
-											<li class="nav-item">
-												<a class="scroll-to-element nav-link text-dark" href="#" data-target="info">Ismertető</a>
-												<a class="scroll-to-element nav-link text-dark" href="#" data-target="ingredients">Hatóanyagok</a>
-												<a class="scroll-to-element nav-link text-dark" href="#" data-target="dosage">Adagolás</a>
-												<a class="scroll-to-element nav-link text-dark" href="#" data-target="buying">Vásárlás</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
-								<div class="col-6">
-									<img style="width:400px;margin-left:70px;" src="{{ asset("images/packshot.png") }}">
-								</div>
+		<div id="product-nav" class="container-fluid position-fixed vh-100 d-none d-md-block">
+			<div class="row h-100 align-items-center position-relative">
+				<div class="col-5 bg-white h-100 position-absolute"></div>
+				<div class="col-12">
+					<div class="container">
+						<div class="row" id="product-nav-content">
+							<div class="col-2 my-auto p-0">
+								<nav class="nav product-submenu">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="d-block scroll-to-element nav-link text-dark" href="#" style="font-size:14px;" data-target="info">Ismertető</a>
+											<a class="d-block scroll-to-element nav-link text-dark" href="#" style="font-size:14px;" data-target="ingredients">Hatóanyagok</a>
+											<a class="d-block scroll-to-element nav-link text-dark" href="#" style="font-size:14px;" data-target="dosage">Adagolás</a>
+											<a class="d-block scroll-to-element nav-link text-dark" href="#" style="font-size:14px;" data-target="buying">Vásárlás</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-4">
+								<img class="w-100" src="{{ asset("images/packshot_extra.png") }}">
 							</div>
 						</div>
-
 					</div>
 				</div>
-				<div class="col-12 col-md-6 offset-md-6 py-5" id="info">
-					<h1 class="hc-product-title">
-						<span class="brand-name">HariClinic</span>
-						<span class="product-type">Extra</span>
-					</h1>
-					<br>
-					<img src="{{ asset('images/illustration.png') }}" style="width:50%;">
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="row">
+			
+				<div class="col-12 col-md-5 offset-md-7" id="info">
+					<div class="row" style="height:33vh">
+						<div class="col-12">
+							<div class="hc-product-title" style="margin-top:11vh;">
+								<h4 class="brand-name">HariClinic</h4>
+								<h1 class="product-type">Extra</h1>
+							</div>
+						</div>
+					</div>
 					<div class="row">
-						<div class="col-12 col-md-6">
-							<p class="my-5 text-green" style="font-style: italic;">
+						<div class="col-8">
+							<img src="{{ asset('images/illustration.png') }}" class="product-image">
+						</div>
+					</div>
+					
+
+
+					<div class="row">
+						<div class="col-12 col-md-10">
+							<p class="my-5 text-green text-lg pt-5" style="font-style: italic;">
 								A HairClinic® Extra tabletta a hajgyökeret olyan ásványi anyagokkal és vitaminokkal táplálja, amelyek hozzájárulnak az egészséges hajszerkezet megőrzéséhez.
 								A retard filmtabletta különlegessége, hogy a benne lévő tápanyagmennyiséget több órán keresztül, elnyújtva juttatja a véráramba. Ezáltal folyamatosan ellátja a sejteket tápanyagokkal.
 							</p>					
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 offset-md-6 py-5" id="ingredients">
+				<div class="col-12 col-md-5 offset-md-7 py-5" id="ingredients">
 
-					<h3 class="font-weight-normal py-5">Hatóanyagok</h3>
+					<h3 class="py-5">Hatóanyagok</h3>
 					@php
 						$ingredients = [
 							[
@@ -80,9 +112,9 @@
 						<div class="row">
 							<div class="col-12 col-md-9">
 								<div class="hc-collapse">
-									<div class="py-4 px-3" style="font-size:1.5rem;" data-toggle="collapse" href="#ingredientsCollapse-{{ $key }}" role="button" aria-expanded="false" aria-controls="ingredientsCollapse-{{ $key }}">
-										<div class="row">
-											<div class="col-10">
+									<div style="font-size:1.5rem;" data-toggle="collapse" href="#ingredientsCollapse-{{ $key }}" role="button" aria-expanded="false" aria-controls="ingredientsCollapse-{{ $key }}">
+										<div class="row py-3 px-3 title">
+											<div class="col-10 text-md">
 												{{ $value["title"] }}
 											</div>
 											<div class="col-2 text-right">
@@ -90,8 +122,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="collapse" id="ingredientsCollapse-{{ $key }}">
-										<div class="m-0 py-3 px-3 text-green">
+									<div class="collapse hc-collapse-content fadeIn" id="ingredientsCollapse-{{ $key }}">
+										<div class="content m-0 pb-3 pt-2 px-3 text-green text-md">
 											{!! $value["content"] !!}
 										</div>
 									</div>
@@ -101,10 +133,10 @@
 					@endforeach
 
 				</div>
-				<div class="col-12 col-md-6 offset-md-6 py-5" id="dosage">
-					<div class="row">
-						<div class="col-12 col-md-6">
-							<p style="font-size:2rem;margin-top: 200px;margin-bottom:200px;">
+				<div class="col-12 col-md-5 offset-md-7" id="dosage">
+					<div class="content d-flex align-items-center row">
+						<div class="col-12 col-md-6">							
+							<p class="text-xl">
 								Naponta 1-2 tabletta bevétele javasolt, bő folyadékkal, egészben lenyelve.
 							</p>
 						</div>
@@ -114,74 +146,106 @@
 		</div>
 		<div id="buying" class="bg-white">
 			<div class="container">
-				<div class="row py-5">
-					<div class="col-12 col-md-6 offset-md-6">
-						<div class="row small text-green">
-							<div class="col-1">
-								<img class="inline-block" src="{{ asset("images/icon-buy.svg") }}">
+				<div class="row">
+					<div class="col-12 col-md-5 offset-md-7 align-items-center content">
+						<div style="margin:5rem 0;">
+							<div class="row small text-green" style="margin-bottom:76px;">
+								<div class="col-1 d-flex justify-content-center" style="flex: 0 0 25px; max-width: 25px;">
+									<img class="inline-block" src="{{ asset("images/green-buy.svg") }}" style="width:25px;">
+								</div>
+								<div class="col">
+									<span class="inline-block text-sm" style="width:200px;">Egy kattintás, és megvásárolhatod <br> a kedvenc online drogériádban</span>
+								</div>
 							</div>
-							<div class="col">
-								<span class="inline-block" style="width:200px;">Egy kattintás, és megvásárolhatod <br> a kedvenc online drogériádban</span>
-							</div>
-						</div>
 
-{{-- 						<p class="dm">Rossmann hc_extra_27 ár: {{ $price['rossmann']['hc_extra_27'] ?? '' }}</p>
-						<p class="dm">Rossmann hc_men_60 ár: {{ $price['rossmann']['hc_men_60'] ?? '' }}</p>
-						<p class="dm">Dm hc_extra_27 ár: {{ $price['dm']['hc_extra_27'] ?? '' }}</p>
-						<p class="dm">Dm hc_men_60 ár: {!! $price['dm']['hc_men_60'] ?? '' !!}</p> --}}
+							{{-- <p class="dm">Rossmann hc_extra_27 ár: {{ $price['rossmann']['hc_extra_27'] ?? '' }}</p>
+							<p class="dm">Rossmann hc_men_60 ár: {{ $price['rossmann']['hc_men_60'] ?? '' }}</p>
+							<p class="dm">Dm hc_extra_27 ár: {{ $price['dm']['hc_extra_27'] ?? '' }}</p>
+							<p class="dm">Dm hc_men_60 ár: {!! $price['dm']['hc_men_60'] ?? '' !!}</p> --}}
 
 
-						<h6 class="text-green mt-5 font-weight-light">30 kapszula</h6>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
-							<div class="col-6">
-								<img src="{{ asset("images/logo-rossmann.png") }}">
-							</div>
-							<div class="col-6 justify-content-end align-items-center d-flex">
-								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_30'][0], 0, ",", " ") }}.-</span>
-							</div>
-							@isset($price['rossmann']['hc_30'][1])
-								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_30'][1]->format("Y-m-d") }}</span>
-							@endisset
-						</div>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
-							<div class="col-6">
-								<img src="{{ asset("images/logo-drogerie-markt.png") }}">
-							</div>
-							<div class="col-6 justify-content-end align-items-center d-flex">
-								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_30'][0], 0, ",", " ") }}.-</span>
-							</div>
-							@isset($price['dm']['hc_30'][1])
-								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_30'][1]->format("Y-m-d") }}</span>
-							@endisset
-						</div>
+							<div class="row">
+								<div class="col-12 col-md-10">
+									<h6 class="text-green mt-5 font-weight-light" style="margin-bottom:35px;">30 kapszula</h6>
 
-						<h6 class="text-green mt-5 font-weight-light">90 kapszula</h6>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
-							<div class="col-6">
-								<img src="{{ asset("images/logo-rossmann.png") }}">
-							</div>
-							<div class="col-6 justify-content-end align-items-center d-flex">
-								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_90'][0], 0, ",", " ") }}.-</span>
+									{{-- 30 kapszula rossmann --}}
+									<a href="{{ $products[0]->url }}" target="blank">
+										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
+											<div class="col-7">
+												<img src="{{ asset("images/logo-rossmann.png") }}">
+											</div>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+											</div>
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_30'][0], 0, ",", " ") }}.-</span>
+											</div>
+											@isset($price['rossmann']['hc_30'][1])
+												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_30'][1]->format("Y-m-d") }}</span>
+											@endisset
+										</div>
+									</a>
 
+									{{-- 30 kapszula dm --}}
+									<a href="{{ $products[4]->url }}" target="blank">
+										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
+											<div class="col-7">
+												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+											</div>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+											</div>
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_30'][0], 0, ",", " ") }}.-</span>
+											</div>
+											@isset($price['dm']['hc_30'][1])
+												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_30'][1]->format("Y-m-d") }}</span>
+											@endisset
+										</div>
+									</a>
+
+									<h6 class="text-green mt-5 font-weight-light" style="margin-bottom:35px;">90 kapszula</h6>
+
+									{{-- 90 kapszula rossmann --}}
+									<a href="{{ $products[1]->url }}" target="blank">
+										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
+											<div class="col-7">
+												<img src="{{ asset("images/logo-rossmann.png") }}">
+											</div>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+											</div>
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">{{ number_format($price['rossmann']['hc_90'][0], 0, ",", " ") }}.-</span>
+
+											</div>
+											@isset($price['rossmann']['hc_90'][1])
+												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_90'][1]->format("Y-m-d") }}</span>
+											@endisset
+										</div>
+									</a>
+
+									{{-- 90 kapszula dm --}}
+									<a href="{{ $products[5]->url }}" target="blank">
+										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
+											<div class="col-7">
+												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
+											</div>
+											<div class="col justify-content-end text-right">
+												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
+											</div>
+											<div class="col-4 justify-content-end align-items-center d-flex">
+												<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_90'][0], 0, ",", " ") }}.-</span>
+											</div>
+											@isset($price['dm']['hc_90'][1])
+												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
+											@endisset
+										</div>
+									</a>
+
+								</div>
 							</div>
-							@isset($price['rossmann']['hc_90'][1])
-								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_90'][1]->format("Y-m-d") }}</span>
-							@endisset
-						</div>
-						<div class="row border w-75 px-1 py-3 align-items-center my-3 hc-hover mx-auto mx-md-0 position-relative">
-							<div class="col-6">
-								<img src="{{ asset("images/logo-drogerie-markt.png") }}">
-							</div>
-							<div class="col-6 justify-content-end align-items-center d-flex">
-								<img class="mr-2" style="width:30px;" src="{{ asset("images/sale.svg") }}">
-								<span style="font-size:1.5rem;">{{ number_format($price['dm']['hc_90'][0], 0, ",", " ") }}.-</span>
-							</div>
-							@isset($price['dm']['hc_90'][1])
-								<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
-							@endisset
+
 						</div>
 					</div>
 				</div>
