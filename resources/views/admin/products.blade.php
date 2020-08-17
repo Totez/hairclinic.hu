@@ -36,6 +36,12 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control @error("products.$loop->index.protocol") is-invalid @enderror" name="products[{{ $loop->index }}][protocol]" value="{{ $product->protocol }}" required>
+                        @error("products.$loop->index.protocol")
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                 </div>
             @endforeach

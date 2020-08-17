@@ -5,72 +5,76 @@ namespace App\Http\Controllers;
 use App\Entities\PageText;
 use App\Entities\Product;
 use Exception;
-use Goutte\Client;
+use Goutte\Client as GoutteClient;
+use Illuminate\Support\Arr;
 use Symfony\Component\HttpClient\HttpClient;
 
 
 class HomeController extends AbstractController {
 
-    protected $client;
+    protected $httpClient;
+
+    protected $goutte;
 
     public function __construct() {
-        $httpClient = HttpClient::create(["verify_peer" => false]);
-        $this->client = new Client($httpClient);
+        $this->httpClient = HttpClient::create(["verify_peer" => false]);
+
+        $this->goutte = new GoutteClient($this->httpClient);
     }
 
     public function hairclinic() {
 
-        $products = Product::all();
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90"];
 
-        $price = [
-            "dm" => [
-                "hc_30" => $this->get_price_with_crawler('dm_hc_30'),
-                "hc_90" => $this->get_price_with_crawler('dm_hc_90'),
-                "hc_extra_27" => $this->get_price_with_crawler('dm_hc_extra_27'),
-                "hc_men_60" => $this->get_price_with_crawler('dm_hc_men_60'),
-            ],
-            "rossmann" => [
-                "hc_30" => $this->get_price_with_crawler('rossmann_hc_30'),
-                "hc_90" => $this->get_price_with_crawler('rossmann_hc_90'),
-                "hc_extra_27" => $this->get_price_with_crawler('rossmann_hc_extra_27'),
-                "hc_men_60" => $this->get_price_with_crawler('rossmann_hc_men_60'),
-            ],
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
 
-        ];
+        $products->each(function (Product $product) {
+            $this->updateProductPrice($product);
+        });
 
         return response()->view("hairclinic", [
-            "price" => $price,
             "products" => $products,
         ]);
     }
 
-    public function get_price_with_crawler($product_key) {
+    protected function updateProductPrice(Product $product) {
 
-        $product = Product::query()->where("key", $product_key)->first();
+        if($product->protocol === "HTTP") {
+            try {
+                $crawler = $this->goutte->request("GET", $product->url);
+                $statusCode = $this->goutte->getResponse()->getStatusCode();
 
-        try {
-            $crawler = $this->client->request("GET", $product->url);
-            $statusCode = $this->client->getResponse()->getStatusCode();
-            
-            if($statusCode == 200) {
-                $crawler->filter($product->selector)->each(function ($node) use (&$price) {
-                    $price = [intval($node->attr("content")), null];
-                });
-            } else {
-                $price = [$product->price, $product->updated_at];
+                if($statusCode == 200) {
+                    $node = $crawler->filter($product->selector);
+//                dd($crawler->filter("body")->html());
+                    if($node->count() == 1 && $node->attr("content") != null) {
+                        $product->price = intval($node->attr("content"));
+                        $product->save();
+                    }
+                }
+
+            } catch (Exception $e) {
+
             }
-            
-        } catch (Exception $e) {
-            $price = [$product->price, $product->updated_at];
         }
-        if($price) return $price;
-        else return [$product->price, $product->updated_at];
+        if($product->protocol === "JSON") {
+            try {
+                $response = $this->httpClient->request("GET", $product->url);
+
+                if($response->getStatusCode() == 200) {
+                    $product->price = intval(Arr::get(json_decode($response->getContent(), true), $product->selector));
+                    $product->save();
+                }
+
+            } catch (Exception $e) {
+
+            }
+        }
     }
 
-    public function nbps_replace($string) {
-        $string = htmlentities($string, null, 'utf-8');
-        $content = str_replace("&nbsp;", "", $string);
-        return html_entity_decode($content);
+    protected function nbps_replace($string) {
+        $content = preg_replace("/\x{00A0}|\s/u","", $string);
+        return $content;
     }
 
     public function goodToKnow() {
@@ -82,6 +86,7 @@ class HomeController extends AbstractController {
         ]);
     }
     public function home() {
+
 
         $pageTexts = PageText::all()->keyBy("key");
 

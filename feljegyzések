@@ -10,7 +10,7 @@ loading screen: befade-el a logó plusz egy csík végig gut az oldalon
 Beérkezünk az indexre max height
 egyenként befadel a menü
 külön class legyen az animáció
-h1, h2, h3 fluid animáció 
+h1, h2, h3 fluid animáció
 soronként ki van mszkolva a headline animációk:
 https://cubic-bezier.com/#.07,.78,.22,.96
 https://www.instagram.com/p/CCufuMEpphv/
@@ -32,7 +32,7 @@ h1 large body
 
 hero position fixed és arra érkezik a tartalom
 
-Megbeszélés 
+Megbeszélés
 
 hariclinic logó nem jó
 productoknák vastagabb a bet kissebb line-height

@@ -23,9 +23,9 @@ class Product extends Model {
     protected $fillable = [
         "key",
         "name",
-        "package",
-        "dm",
-        "rossmann"
+        "url",
+        "selector",
+        "protocol"
     ];
     protected $casts = [
         "price" => "int"

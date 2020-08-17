@@ -20,6 +20,7 @@ class CreateProductTable extends Migration
             $table->string("price");
             $table->string("url");
             $table->string("selector");
+            $table->string("protocol");
             $table->timestamps();
         });
     }
