@@ -29,7 +29,27 @@
 			<div class="d-none d-xl-block d-xxl-none">XL</div>
 			<div class="d-none d-xxl-block">XXL</div>
 		</div>
-	{{-- teszt --}}
+        <style type="text/css">
+            .layouts{
+                opacity: 0.1;
+            }
+            .layouts:nth-child(odd){
+                background: yellowgreen;
+            }
+            .layouts:nth-child(even){
+                background: #000;
+            }
+        </style>
+        <button class="btn btn-primary position-fixed text-white lyt-btn" style="z-index: 9999999;">Layout</button>
+        <div id="layout" class="container position-fixed h-100 mx-auto" style="z-index: 1000;left:0;right:0;pointer-events: none;display: none;">
+            <div class="row h-100">
+                <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+                <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+                <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+                <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
+            </div>
+        </div>
+    {{-- teszt --}}
 
 
     <div id="app">
@@ -38,6 +58,10 @@
             @include('layouts.navbar')
 
         </header>
+
+
+
+
 
         <main class="main">
             @yield('content')

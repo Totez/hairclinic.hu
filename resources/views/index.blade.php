@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+
+	<div class="blanket">
+		<img src="{{ asset("/images/header/HC_logo_png_feher.png") }}">
+	</div>
 	
 	<section data-slide-duration="500" class="hero">
 		<div class="container-fluid h-100 position-fixed mx-auto" style="top:0;left:0;right:0;">
@@ -103,12 +107,12 @@
 		</div>
 	</section>
 
-	<section data-slide-duration="200" class="placeholder bg-light vh-100 py-5">
+	<section data-slide-duration="500" class="placeholder bg-light vh-100 py-5">
 		<div class="container homeProductContainer">
 		</div>
 	</section>
 
-	<section data-slide-duration="200" class="placeholder bg-light py-5" style="height:150vh;">
+	<section data-slide-duration="500" class="placeholder bg-light py-5" style="height:150vh;">
 		<div class="container homeProductContainer">
 		</div>
 	</section>

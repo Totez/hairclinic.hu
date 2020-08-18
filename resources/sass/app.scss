@@ -12,6 +12,7 @@ html, body{
 }
 body{
 	margin-top:$nav-height;
+	// background:#000;
 }
 
 
@@ -77,6 +78,19 @@ body{
 	img{
 		margin:auto;
 		display: none;
+	}
+}
+.blanket{
+	display: flex;
+	position: fixed;
+	top:0;
+	right:0;
+	z-index: 999999;
+	background:#d6e4c1;
+	width:100vw;
+	height:100vh;
+	img{
+		margin:auto;
 	}
 }
 section{
@@ -328,4 +342,14 @@ footer{
 }
 .product-image{
 	width:240px;
+}
+.loaded-white-bg{
+	background: #fff;
+	width:0px;
+	transition:0.4s;
+	padding:0;
+	opacity: 0;
+}
+.triggerFadeIn{
+	opacity: 0;
 }

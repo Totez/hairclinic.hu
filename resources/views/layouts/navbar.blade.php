@@ -3,11 +3,11 @@
 		<a class="navbar-brand logo" href="{{ url('/') }}" style="padding-left:3rem;width:143px;">
 			<img src="{{ asset("images/header/HC_logo_png_feher.png") }}" style="width:143px;">
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse align-items-start position-relative" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse align-items-start position-relative" id="main-menu">
 
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">

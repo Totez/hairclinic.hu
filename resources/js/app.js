@@ -13,6 +13,28 @@ var animationLoaded = false;
 
 
 $(function(){
+	//"takaró" elem eltüntetése / megjelenítése
+	setTimeout(function(){
+		$(".blanket, .blanket img").fadeOut();
+	},400);
+
+	if($(".blanket")){
+		$("#main-menu a").click(function(e){
+			e.preventDefault();
+			const url = $(this).attr("href");
+			$(".blanket, .blanket img").fadeIn(300, function(){
+				window.location.href = url;
+			});
+			return false;
+		});
+	}
+
+	//layout button
+	$(".lyt-btn").click(function(){
+		$("#layout").fadeToggle();
+	});
+
+
 	// Lax.js inicializáslá
 	window.onload = function() {
 
@@ -107,9 +129,9 @@ $(function(){
 	}
 
 	//egyszerű számláló
-	// paraméterek: mettől, meddig, callback, callback, delay
-	function backCounter(x, y, onEnd, onCount, delay = 300){
-		clearInterval(counter);
+	// paraméterek: mettől, meddig, callback, callback, két szám közti eltelt idő, átfedés
+	function backCounter(x, y, onEnd, onCount, duration = 300, overlap = false){
+		// clearInterval(counter);
 		counter = setInterval(function(){
 			if(x == y){
 				clearInterval(counter);
@@ -118,7 +140,7 @@ $(function(){
 				onCount(x);
 			}
 			x++;
-		},delay);
+		}, duration);
 	}
 
 	$("a.scroll-to-element").click(function(e) {
@@ -158,9 +180,53 @@ $(function(){
 		}
 	});
 
-	$(document).scroll(function(){
+	$.each($('.homeProductContainer'), function(index, el) {
+		$(el).attr("data-count", index);
+	});
+
+
+	//autoscroll
+	const sections = $("section");
+	$.each(sections, function(index, section) {
+		$(section).attr("data-current-section", index);
+	});
+
+
+	//loadingra kinyíló fehér hátterek
+	if($(".loaded-white-bg")){
+		setTimeout(function(){
+
+			whiteBgAnimation($(".loaded-white-bg")[0], function(){
+				const elements = $(".triggerFadeIn");
+				backCounter(0, elements.length, function(){
+					// console.log("Végigért az összesen");
+				}, function(i){
+					console.log(elements[i]);
+					$(elements[i]).animate({
+						opacity: 1
+					},400);
+				}, 100);
+			});
+
+		},400);
+	}
+
+
+	function whiteBgAnimation(el, onEnd){
+		$(el).animate({
+			width: "100%",
+			opacity: 1
+		},600, function(){
+			$(el).addClass("animated");
+			onEnd();
+		});
+	}
+
+	$(document).scroll(function(e){
+		// console.log("scrolling...");
+
+		//vásárlás betöltése EZT ITT ÁT KELL ÍRNI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		const elements = $('.lazy-load-container'); 
-		
 		if(elements.length > 0){
 			// console.log("------------------------------------");
 			$.each(elements, function(index, el) {
@@ -190,28 +256,6 @@ $(function(){
 				}
 			});
 		}	
-	});
-
-})
-
-
-
-$(function(){
-
-	$.each($('.homeProductContainer'), function(index, el) {
-		$(el).attr("data-count", index);
-	});
-
-
-	//autoscroll
-	const sections = $("section");
-	$.each(sections, function(index, section) {
-		$(section).attr("data-current-section", index);
-	});
-
-	$(document).scroll(function(e){
-		// console.log("scrolling...");
-
 
 		//scrollozás irányának lekérése
 		var st = $(this).scrollTop();
@@ -272,47 +316,54 @@ $(function(){
 			}
 		}
 
-
 		//kinyíló fehér hátterek
 		if($(".bg-white-div").length > 0){
 			const bgWhiteDiv = $(".bg-white-div");
 			$.each(bgWhiteDiv, function(index, el) {
-				const bgDivTop =  $(document).scrollTop() + $(window).height() - $(el).offset().top;
+				const bgDivTop =  $(document).scrollTop() + $(window).height() - $(el).offset().top - $(el).height();
 				if(bgDivTop > 0){
-					const max = 0.8 * $(window).height() - navHeight;
-					const percent = (bgDivTop / max) * 100;
-					
-					if(percent <= 100){
-						if(!$(el).hasClass('sizing')){
-							$(el).addClass('sizing');
-						}
-						
-						if(!$(el).hasClass('sized')){
-							$(el).css({
-								width : percent + "%",
-								opacity : percent + "%"
-							});
-						}
 
-					} else {
-						if(!$(el).hasClass('sized')){
-							$(el).addClass('sized');
-							$(el).css({
-								width :  "100%",
-								opacity : "100%"
-							});
-						}
+					if(!$(el).hasClass('animated')){
+						whiteBgAnimation(el, function(){
+							console.log("kinyílt");
+						});
 					}
+
+
+					// const max = 0.8 * $(window).height() - navHeight;
+					// const percent = (bgDivTop / max) * 100;
+					
+					// if(percent <= 100){
+					// 	if(!$(el).hasClass('sizing')){
+					// 		$(el).addClass('sizing');
+					// 	}
+						
+					// 	if(!$(el).hasClass('sized')){
+					// 		$(el).css({
+					// 			width : percent + "%",
+					// 			opacity : percent + "%"
+					// 		});
+					// 	}
+
+					// } else {
+					// 	if(!$(el).hasClass('sized')){
+					// 		$(el).addClass('sized');
+					// 		$(el).css({
+					// 			width :  "100%",
+					// 			opacity : "100%"
+					// 		});
+					// 	}
+					// }
 				}	
 			});
 		}
 
 
 		//főoldali scroll események
-		const elements = $('.homeProductContainer'); 
-		if(elements.length > 0){
+		const homeContainers = $('.homeProductContainer'); 
+		if(homeContainers.length > 0){
 			
-			$.each(elements, function(index, el) {
+			$.each(homeContainers, function(index, el) {
 				if(!$(el).hasClass("wasFixed")){
 
 					const $el = $(el);
