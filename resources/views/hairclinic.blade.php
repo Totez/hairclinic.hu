@@ -34,9 +34,9 @@
 			</div>
 		</div>
 		<div class="container">
-			
+
 			<div class="row">
-			
+
 				<div class="col-12 col-md-5 offset-md-7" id="info">
 					<div class="row" style="height:33vh">
 						<div class="col-12">
@@ -51,7 +51,7 @@
 							<img src="{{ asset('images/illustration.png') }}" class="product-image triggerFadeIn">
 						</div>
 					</div>
-					
+
 
 
 					<div class="row">
@@ -59,7 +59,7 @@
 							<p class="my-5 text-green text-lg pt-5 triggerFadeIn" style="font-style: italic;">
 								A HairClinic® Extra tabletta a hajgyökeret olyan ásványi anyagokkal és vitaminokkal táplálja, amelyek hozzájárulnak az egészséges hajszerkezet megőrzéséhez.
 								A retard filmtabletta különlegessége, hogy a benne lévő tápanyagmennyiséget több órán keresztül, elnyújtva juttatja a véráramba. Ezáltal folyamatosan ellátja a sejteket tápanyagokkal.
-							</p>					
+							</p>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@
 				</div>
 				<div class="col-12 col-md-5 offset-md-7" id="dosage">
 					<div class="content d-flex align-items-center row">
-						<div class="col-12 col-md-6">							
+						<div class="col-12 col-md-6">
 							<p class="text-xl">
 								Naponta 1-2 tabletta bevétele javasolt, bő folyadékkal, egészben lenyelve.
 							</p>
@@ -152,7 +152,7 @@
 									<h6 class="text-green mt-5 font-weight-light" style="margin-bottom:35px;">30 kapszula</h6>
 
 									{{-- 30 kapszula rossmann --}}
-									<a href="{{ $products[0]->url }}" target="blank" style="text-decoration: none;">
+									<a href="{{ $products["rossmann_hc_30"]->url }}" target="blank">
 										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
 											<div class="col-7">
 												<img src="{{ asset("images/logo-rossmann.png") }}">
@@ -161,16 +161,16 @@
 												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
 											<div class="col-4 justify-content-end align-items-center d-flex">
-												<span class="text-md text-dark">{{ number_format($price['rossmann']['hc_30'][0], 0, ",", " ") }}.-</span>
+												<span class="text-md text-dark">{{ number_format($products["rossmann_hc_30"]->price, 0, ",", " ") }}.-</span>
 											</div>
-											@isset($price['rossmann']['hc_30'][1])
-												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_30'][1]->format("Y-m-d") }}</span>
-											@endisset
+                                            @if($products["rossmann_hc_30"]->updated_at->diffInMinutes() > 1)
+                                                <span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $products["rossmann_hc_30"]->updated_at->format("Y-m-d") }}</span>
+                                            @endif
 										</div>
 									</a>
 
 									{{-- 30 kapszula dm --}}
-									<a href="{{ $products[4]->url }}" target="blank" style="text-decoration: none;">
+									<a href="{{ $products["dm_hc_30"]->url }}" target="blank" style="text-decoration: none;">
 										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
 											<div class="col-7">
 												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
@@ -179,18 +179,18 @@
 												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
 											<div class="col-4 justify-content-end align-items-center d-flex">
-												<span class="text-md text-dark">{{ number_format($price['dm']['hc_30'][0], 0, ",", " ") }}.-</span>
+												<span class="text-md text-dark">{{ number_format($products["dm_hc_30"]->price, 0, ",", " ") }}.-</span>
 											</div>
-											@isset($price['dm']['hc_30'][1])
-												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_30'][1]->format("Y-m-d") }}</span>
-											@endisset
+                                            @if($products["dm_hc_30"]->updated_at->diffInMinutes() > 1)
+                                                <span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $products["dm_hc_30"]->updated_at->format("Y-m-d") }}</span>
+                                            @endif
 										</div>
 									</a>
 
 									<h6 class="text-green mt-5 font-weight-light" style="margin-bottom:35px;">90 kapszula</h6>
 
 									{{-- 90 kapszula rossmann --}}
-									<a href="{{ $products[1]->url }}" target="blank" style="text-decoration: none;">
+									<a href="{{ $products["rossmann_hc_90"]->url }}" target="blank" style="text-decoration: none;">
 										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
 											<div class="col-7">
 												<img src="{{ asset("images/logo-rossmann.png") }}">
@@ -199,17 +199,17 @@
 												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
 											<div class="col-4 justify-content-end align-items-center d-flex">
-												<span class="text-md text-dark">{{ number_format($price['rossmann']['hc_90'][0], 0, ",", " ") }}.-</span>
+												<span class="text-md text-dark">{{ number_format($products["rossmann_hc_90"]->price, 0, ",", " ") }}.-</span>
 
 											</div>
-											@isset($price['rossmann']['hc_90'][1])
-												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['rossmann']['hc_90'][1]->format("Y-m-d") }}</span>
-											@endisset
+                                            @if($products["rossmann_hc_90"]->updated_at->diffInMinutes() > 1)
+                                                <span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $products["rossmann_hc_90"]->updated_at->format("Y-m-d") }}</span>
+                                            @endif
 										</div>
 									</a>
 
 									{{-- 90 kapszula dm --}}
-									<a href="{{ $products[5]->url }}" target="blank" style="text-decoration: none;">
+									<a href="{{ $products["dm_hc_90"]->url }}" target="blank" style="text-decoration: none;">
 										<div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
 											<div class="col-7">
 												<img src="{{ asset("images/logo-drogerie-markt.png") }}">
@@ -218,11 +218,11 @@
 												<img style="width:40px;" src="{{ asset("images/sale.svg") }}">
 											</div>
 											<div class="col-4 justify-content-end align-items-center d-flex">
-												<span class="text-md text-dark">{{ number_format($price['dm']['hc_90'][0], 0, ",", " ") }}.-</span>
+												<span class="text-md text-dark" style="font-size:1.5rem;">{{ number_format($products["dm_hc_90"]->price, 0, ",", " ") }}.-</span>
 											</div>
-											@isset($price['dm']['hc_90'][1])
-												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $price['dm']['hc_90'][1]->format("Y-m-d") }}</span>
-											@endisset
+											@if($products["dm_hc_90"]->updated_at->diffInMinutes() > 1)
+												<span class="position-absolute text-green" style="bottom:0px;right:1rem;font-size:0.55rem;">Utolsó frissítés: {{ $products["dm_hc_90"]->updated_at->format("Y-m-d") }}</span>
+											@endif
 										</div>
 									</a>
 
