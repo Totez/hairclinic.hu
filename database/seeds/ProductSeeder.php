@@ -14,25 +14,82 @@ class ProductSeeder extends Seeder
     public function run() {
 
         $products = [
-            "rossmann_hc_30" => ['Hairclinic', '[itemProp="price"]', "HTTP", "https://shop.rossmann.hu/termek/hair-clinic-hajszepseg-kapszula-30-db"],
-            "rossmann_hc_90" => ['Hairclinic', '[itemProp="price"]', "HTTP", "https://shop.rossmann.hu/termek/hairclinic-haj-kapszula-90-db"],
-            "rossmann_hc_extra_27" => ['Hairclinic Extra', '[itemProp="price"]', "HTTP", "https://shop.rossmann.hu/termek/hair-clinic-extra-kapszula-27-db"],
-            "rossmann_hc_men_60" => ['Hairclinic Men', '[itemProp="price"]', "HTTP", "https://shop.rossmann.hu/termek/hairclinic-men-etrend-kiegeszito-hialuronsavval-koffeinnel-szabalpalma-kivonattal-60-db-32-4-g"],
-            "dm_hc_30" => ["Hairclinic", "0.price", "JSON", "https://products.dm.de/product/hu/products/gtins/5999882020006?view=details"],
-            "dm_hc_90" => ["Hairclinic", "0.price", "JSON", "https://products.dm.de/product/hu/products/gtins/5999882020099?view=details"],
-            "dm_hc_extra_27" => ["Hairclinic Extra", "0.price","JSON",  "https://products.dm.de/product/hu/products/gtins/5999882020051?view=details"],
-            "dm_hc_men_60" => ["Hairclinic Men", "0.price", "JSON", "https://products.dm.de/product/hu/products/gtins/5999882020259?view=details"],
+            [
+                "key" => "rossmann_hc_30",
+                "name" => 'Hairclinic 30db (Rossmann)',
+                "shop_url" => "https://shop.rossmann.hu/termek/hair-clinic-hajszepseg-kapszula-30-db",
+                "update_url" => "https://shop.rossmann.hu/termek/hair-clinic-hajszepseg-kapszula-30-db",
+                "selector" => '[itemProp="price"]',
+                "protocol" => "HTTP",
+            ],
+            [
+                "key" => "rossmann_hc_90",
+                "name" => 'Hairclinic 90db (Rossmann)',
+                "shop_url" => "https://shop.rossmann.hu/termek/hairclinic-haj-kapszula-90-db",
+                "update_url" => "https://shop.rossmann.hu/termek/hairclinic-haj-kapszula-90-db",
+                "selector" => '[itemProp="price"]',
+                "protocol" => "HTTP",
+            ],
+            [
+                "key" => "rossmann_hc_extra",
+                "name" => 'Hairclinic Extra (Rossmann)',
+                "shop_url" => "https://shop.rossmann.hu/termek/hair-clinic-extra-kapszula-27-db",
+                "update_url" => "https://shop.rossmann.hu/termek/hair-clinic-extra-kapszula-27-db",
+                "selector" => '[itemProp="price"]',
+                "protocol" => "HTTP",
+            ],
+            [
+                "key" => "rossmann_hc_men",
+                "name" => 'Hairclinic Men (Rossmann)',
+                "shop_url" => "https://shop.rossmann.hu/termek/hairclinic-men-etrend-kiegeszito-hialuronsavval-koffeinnel-szabalpalma-kivonattal-60-db-32-4-g",
+                "update_url" => "https://shop.rossmann.hu/termek/hairclinic-men-etrend-kiegeszito-hialuronsavval-koffeinnel-szabalpalma-kivonattal-60-db-32-4-g",
+                "selector" => '[itemProp="price"]',
+                "protocol" => "HTTP",
+            ],
+            [
+                "key" => "dm_hc_30",
+                "name" => 'Hairclinic 30db (DM)',
+                "shop_url" => "https://www.dm.hu/hair-clinic-men-kapszula-p5999882020006.html",
+                "update_url" => "https://products.dm.de/product/hu/products/gtins/5999882020006?view=details",
+                "selector" => "0.price",
+                "protocol" => "JSON",
+            ],
+            [
+                "key" => "dm_hc_90",
+                "name" => 'Hairclinic 90db (DM)',
+                "shop_url" => "https://www.dm.hu/hair-clinic-men-kapszula-p5999882020099.html",
+                "update_url" => "https://products.dm.de/product/hu/products/gtins/5999882020099?view=details",
+                "selector" => "0.price",
+                "protocol" => "JSON",
+            ],
+            [
+                "key" => "dm_hc_extra",
+                "name" => 'Hairclinic Extra',
+                "shop_url" => "https://www.dm.hu/hair-clinic-men-kapszula-p5999882020051.html",
+                "update_url" => "https://products.dm.de/product/hu/products/gtins/5999882020051?view=details",
+                "selector" => "0.price",
+                "protocol" => "JSON",
+            ],
+            [
+                "key" => "dm_hc_men",
+                "name" => 'Hairclinic Men',
+                "shop_url" => "https://www.dm.hu/hair-clinic-men-kapszula-p5999882020259.html",
+                "update_url" => "https://products.dm.de/product/hu/products/gtins/5999882020259?view=details",
+                "selector" => "0.price",
+                "protocol" => "JSON",
+            ]
         ];
 
 
-        foreach ($products as $productkey => $product) {
+        foreach ($products as $product) {
             DB::table("products")->insert([
-                "key" => $productkey,
-                "name" => $product[0],
+                "key" => $product["key"],
+                "name" => $product["name"],
                 "price" => "2000",
-                "url" => $product[3],
-                "selector" => $product[1],
-                "protocol" => $product[2],
+                "shop_url" => $product["shop_url"],
+                "update_url" => $product["update_url"],
+                "selector" => $product["selector"],
+                "protocol" => $product["protocol"],
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now(),
             ]);

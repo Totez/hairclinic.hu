@@ -4,7 +4,7 @@
 	<div class="blanket">
 		<img src="{{ asset("/images/header/HC_logo_png_feher.png") }}">
 	</div>
-	
+
 	<section data-slide-duration="500" class="hero">
 		<div class="container-fluid h-100 position-fixed mx-auto" style="top:0;left:0;right:0;">
 			<div class="row h-100 lax" data-lax-translate-y="-1000 -500, vh 500" data-lax-anchor=".hero">
@@ -13,7 +13,7 @@
 						<div data-from-direction="top" class="py-4" style="font-size:2rem;">A hajtáplálás<br>tudománya</div>
 						<a href="{{ url("/buying") }}"><img data-from-direction="left" src="{{ asset('images/buy.svg') }}"></a>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</section>
@@ -23,12 +23,12 @@
 			<img class="w-100 lax" data-lax-translate-y="-300 -100, vh 100" data-lax-anchor="#slogen"  src="{{ asset("images/hc_bg.svg") }}">
 			<p class="text-center d-flex w-100 h-100" style="position: absolute;top:0;left:0;">
 				<span class="m-auto" style="font-weight:normal;font-style:italic;font-size:33.9px;line-height: 39px;">
-					{!! $pageTexts['home.slogen']["text"] !!}
+					{!! $page_contents["home"]["slogen"]["content"] !!}
 				</span>
 			</p>
 		</div>
 	</section>
-	
+
 	<section data-slide-duration="500" id="products" class="bg-light vh-100">
 		<div class="container h-100 mx-auto homeProductContainer">
 			<div class="row">
@@ -51,14 +51,14 @@
 						</div>
 						<div id="descriptions" class="col-12 col-lg-4">
 
-							<div class="products text-center text-lg- style="font-style:italic;"left">
+							<div class="products text-center text-lg-left" style="font-style:italic;">
 								<div data-count="0" class="title active">
 									<h1 class="d-block p-type">
 										HairClinic
 									</h1>
 								</div>
 								<div data-count="1" class="title">
-									<h4 class="d-block p-title"">
+									<h4 class="d-block p-title">
 										HairClinic
 									</h4>
 									<h1 class="d-block p-type">
@@ -66,7 +66,7 @@
 									</h1>
 								</div>
 								<div data-count="2" class="title">
-									<h4 class="d-block p-title"">
+									<h4 class="d-block p-title">
 										HairClinic
 									</h4>
 									<h1 class="d-block p-type">
@@ -77,10 +77,10 @@
 							<div class="product-descriptions" style="padding-top: 50px;">
 								<div data-count="0" class="description active">
 									<p class="text text-green text-lg" style="font-style:italic;">
-										{!! $pageTexts['home.hc']["text"] !!}
+                                        {!! $page_contents["home"]["hc"]["content"] !!}
 									</p>
 									<div class="pr-5">
-										<a href="{{ url("/hairclinic") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic") }}" class="cta mr-5">Ismertető</a>
 									</div>
 								</div>
 								<div data-count="1" class="description">
@@ -88,7 +88,7 @@
 										A tápanyagokat több órán keresztül, elnyújtva juttatja a véráramba.
 									</p>
 									<div class="pr-5">
-										<a href="{{ url("/hairclinic-extra") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic_extra") }}" class="cta mr-5">Ismertető</a>
 									</div>
 								</div>
 								<div data-count="2" class="description">
@@ -96,7 +96,7 @@
 										Hialuronsav, koffein és szabalpálma-kivonat a szép és egészséges férfihajért.
 									</p>
 									<div class="pr-5">
-										<a href="{{ url("/hairclinic-men") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic_men") }}" class="cta mr-5">Ismertető</a>
 									</div>
 								</div>
 							</div>

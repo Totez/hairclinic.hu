@@ -25,9 +25,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control @error("products.$loop->index.url") is-invalid @enderror" name="products[{{ $loop->index }}][url]" value="{{ $product->url }}" required>
-                        @error("products.$loop->index.url")
+                        <input type="text" class="form-control @error("products.$loop->index.shop_url") is-invalid @enderror" name="products[{{ $loop->index }}][shop_url]" value="{{ $product->shop_url }}" required>
+                        @error("products.$loop->index.shop_url")
                             <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control @error("products.$loop->index.update_url") is-invalid @enderror" name="products[{{ $loop->index }}][update_url]" value="{{ $product->update_url }}" required>
+                        @error("products.$loop->index.update_url")
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">

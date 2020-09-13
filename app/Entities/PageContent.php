@@ -6,14 +6,14 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PageText extends Model {
+class PageContent extends Model {
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = "page_texts";
+    protected $table = "page_contents";
 
     /**
      * The attributes that are mass assignable.
@@ -23,8 +23,8 @@ class PageText extends Model {
     protected $fillable = [
         "key",
         "page",
-        "name",
-        "text"
+        "title",
+        "content"
     ];
 
 }

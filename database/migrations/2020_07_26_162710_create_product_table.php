@@ -18,7 +18,8 @@ class CreateProductTable extends Migration
             $table->string("key")->unique();
             $table->string("name");
             $table->string("price");
-            $table->string("url");
+            $table->string("shop_url");
+            $table->string("update_url");
             $table->string("selector");
             $table->string("protocol");
             $table->timestamps();

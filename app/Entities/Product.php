@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model {
 
+    const PROTOCOL_HTTP = "HTTP";
+    const PROTOCOL_JSON = "JSON";
+
     /**
      * The table associated with the model.
      *

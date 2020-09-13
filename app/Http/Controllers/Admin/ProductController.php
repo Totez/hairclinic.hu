@@ -26,7 +26,8 @@ class ProductController extends AdminController {
             "products.*.key" => "required|string|max:255",
             "products.*.name" => "required|string|max:255",
             "products.*.price" => "required|numeric",
-            "products.*.url" => "required|string",
+            "products.*.shop_url" => "required|string",
+            "products.*.update_url" => "required|string",
             "products.*.selector" => "required|string"
         ]);
 
@@ -40,7 +41,8 @@ class ProductController extends AdminController {
 
             $product->name = $productData["name"];
             $product->price = $productData["price"];
-            $product->url = $productData["url"];
+            $product->shop_url = $productData["shop_url"];
+            $product->update_url = $productData["update_url"];
             $product->selector = $productData["selector"];
             $product->save();
         }

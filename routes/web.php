@@ -23,17 +23,19 @@ Route::get('/hairclinic', [
     "as" => "hairclinic"
 ]);
 
-Route::get('/hairclinic-extra', function () {
-    return view('hairclinic-extra');
-});
+Route::get('/hairclinic-extra', [
+    "uses" => "HomeController@hairclinicExtra",
+    "as" => "hairclinic_extra"
+]);
 
-Route::get('/hairclinic-men', function () {
-    return view('hairclinic-men');
-});
+Route::get('/hairclinic-men', [
+    "uses" => "HomeController@hairclinicmen",
+    "as" => "hairclinic_men"
+]);
 
 Route::get('/good-to-know', [
     "uses" => "HomeController@goodToKnow",
-    "as" => "goodtoknow"
+    "as" => "good_to_know"
 ]);
 
 Route::get('/opinions', function () {
@@ -86,12 +88,12 @@ Route::prefix("admin")
     Route::prefix("page")->name("page.")->group(function () {
 
         Route::get("/text/list", [
-            "uses" => "PageTextController@list",
+            "uses" => "PageContentController@list",
             "as" => "text.list"
         ]);
 
         Route::post("/text/update", [
-            "uses" => "PageTextController@update",
+            "uses" => "PageContentController@update",
             "as" => "text.update"
         ]);
 

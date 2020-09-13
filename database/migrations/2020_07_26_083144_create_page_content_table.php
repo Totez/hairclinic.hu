@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageTextTable extends Migration
+class CreatePageContentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePageTextTable extends Migration
      */
     public function up()
     {
-        Schema::create("page_texts", function (Blueprint $table) {
+        Schema::create("page_contents", function (Blueprint $table) {
             $table->id();
             $table->string("key")->unique();
             $table->string("page");
-            $table->string("name");
-            $table->text("text");
+            $table->string("title");
+            $table->text("content");
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePageTextTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("page_texts");
+        Schema::dropIfExists("page_contents");
     }
 }

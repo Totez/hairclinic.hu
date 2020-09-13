@@ -2,24 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\PageText;
+use App\Entities\PageContent;
 use App\Entities\Product;
-use Exception;
-use Goutte\Client as GoutteClient;
-use Illuminate\Support\Arr;
-use Symfony\Component\HttpClient\HttpClient;
+use App\Services\PageContentService;
 
 
 class HomeController extends AbstractController {
 
-    protected $httpClient;
+    /**
+     * @var PageContentService
+     */
+    protected $pageContentService;
 
-    protected $goutte;
+    /**
+     * HomeController constructor.
+     * @param PageContentService $pageContentService
+     */
+    public function __construct(PageContentService $pageContentService) {
+        $this->pageContentService = $pageContentService;
+    }
 
-    public function __construct() {
-        $this->httpClient = HttpClient::create(["verify_peer" => false]);
+    public function home() {
 
-        $this->goutte = new GoutteClient($this->httpClient);
+
+        $pageContents = $this->pageContentService->getContentsForPage("home");
+
+        return response()->view("index", [
+            "page_contents" => $pageContents
+        ]);
     }
 
     public function hairclinic() {
@@ -28,70 +38,75 @@ class HomeController extends AbstractController {
 
         $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
 
-        $products->each(function (Product $product) {
-            $this->updateProductPrice($product);
+        $product_infos = $products->map(function (Product $product) {
+           return array(
+               "price" => $product->price,
+               "url" => $product->shop_url,
+               "is_outdated" => $product->updated_at->diffInDays() >= 1,
+               "updated_at" => $product->updated_at
+           );
         });
 
+        $pageContents = $this->pageContentService->getContentsForPage("hairclinic");
+
         return response()->view("hairclinic", [
-            "products" => $products,
+            "products" => $product_infos,
+            "page_contents" => $pageContents
         ]);
     }
 
-    protected function updateProductPrice(Product $product) {
+    public function hairclinicExtra() {
 
-        if($product->protocol === "HTTP") {
-            try {
-                $crawler = $this->goutte->request("GET", $product->url);
-                $statusCode = $this->goutte->getResponse()->getStatusCode();
+        $product_keys = ["dm_hc_extra", "rossmann_hc_extra"];
 
-                if($statusCode == 200) {
-                    $node = $crawler->filter($product->selector);
-//                dd($crawler->filter("body")->html());
-                    if($node->count() == 1 && $node->attr("content") != null) {
-                        $product->price = intval($node->attr("content"));
-                        $product->save();
-                    }
-                }
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
 
-            } catch (Exception $e) {
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
 
-            }
-        }
-        if($product->protocol === "JSON") {
-            try {
-                $response = $this->httpClient->request("GET", $product->url);
+        $pageContents = $this->pageContentService->getContentsForPage("hairclinic_extra");
 
-                if($response->getStatusCode() == 200) {
-                    $product->price = intval(Arr::get(json_decode($response->getContent(), true), $product->selector));
-                    $product->save();
-                }
-
-            } catch (Exception $e) {
-
-            }
-        }
+        return response()->view("hairclinic-extra", [
+            "products" => $product_infos,
+            "page_contents" => $pageContents
+        ]);
     }
 
-    protected function nbps_replace($string) {
-        $content = preg_replace("/\x{00A0}|\s/u","", $string);
-        return $content;
+    public function hairclinicMen() {
+
+        $product_keys = ["dm_hc_men", "rossmann_hc_men"];
+
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
+
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
+
+        $pageContents = $this->pageContentService->getContentsForPage("hairclinic_men");
+
+        return response()->view("hairclinic-men", [
+            "products" => $product_infos,
+            "page_contents" => $pageContents
+        ]);
     }
 
     public function goodToKnow() {
 
-        $pageTexts = PageText::all()->keyBy("key");
+        $pageContents = $this->pageContentService->getContentsForPage("good_to_know");
 
         return response()->view("good-to-know", [
-            "pageTexts" => $pageTexts
-        ]);
-    }
-    public function home() {
-
-
-        $pageTexts = PageText::all()->keyBy("key");
-
-        return response()->view("index", [
-            "pageTexts" => $pageTexts
+            "page_contents" => $pageContents
         ]);
     }
 }
