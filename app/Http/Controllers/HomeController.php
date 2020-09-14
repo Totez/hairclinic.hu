@@ -109,4 +109,12 @@ class HomeController extends AbstractController {
             "page_contents" => $pageContents
         ]);
     }
+    public function adviceOfZsidro() {
+
+        $pageContents = "";
+
+        return response()->view("advice-of-zsidro", [
+            "page_contents" => $pageContents
+        ]);
+    }
 }

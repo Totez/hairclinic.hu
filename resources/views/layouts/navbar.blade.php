@@ -32,11 +32,11 @@
 						<span style="font-weight: 300;font-size:14px;">Jó tudni</span>
 					</a>
 				</li>
-{{-- 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('opinions') }}">
-						<span style="font-weight: 300;font-size:14px;">Vélemények</span>
+				<li class="nav-item">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('advice-of-zsidro') }}">
+						<span style="font-weight: 300;font-size:14px;">Zsidró tanácsai</span>
 					</a>
-				</li> --}}
+				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">

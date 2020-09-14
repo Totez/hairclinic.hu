@@ -38,6 +38,11 @@ Route::get('/good-to-know', [
     "as" => "good_to_know"
 ]);
 
+Route::get('/advice-of-zsidro', [
+    "uses" => "HomeController@adviceOfZsidro",
+    "as" => "advice_of_zsidro"
+]);
+
 Route::get('/opinions', function () {
     return view('opinions');
 });

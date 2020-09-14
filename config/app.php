@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Europa/Budapest',
+    'timezone' => 'Europe/Budapest',
 
     /*
     |--------------------------------------------------------------------------
