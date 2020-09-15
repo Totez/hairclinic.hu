@@ -39,17 +39,18 @@ Route::get('/good-to-know', [
 ]);
 
 Route::get('/advice-of-zsidro', [
-    "uses" => "HomeController@adviceOfZsidro",
-    "as" => "advice_of_zsidro"
+    "uses" => "HomeController@advice",
+    "as" => "advice"
 ]);
 
 Route::get('/opinions', function () {
     return view('opinions');
 });
 
-Route::get('/buying', function () {
-    return view('buying');
-});
+Route::get('/buying', [
+    "uses" => "HomeController@buy",
+    "as" => "buy"
+]);
 Route::get('/teszt', function () {
     return view('teszt');
 });
@@ -86,8 +87,14 @@ Route::prefix("admin")
     ]);
 
     Route::post("/product/update", [
+
         "uses" => "ProductController@update",
         "as" => "product.update"
+    ]);
+
+    Route::get("/product/update/self", [
+        "uses" => "ProductController@selfUpdate",
+        "as" => "product.update.self"
     ]);
 
     Route::prefix("page")->name("page.")->group(function () {

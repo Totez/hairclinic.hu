@@ -53,5 +53,6 @@
             @endforeach
         </div>
         <input type="submit" value="Mentés">
+        <a href="{{ route("admin.product.update.self") }}">Termékek frissítése</a>
     </form>
 @endsection

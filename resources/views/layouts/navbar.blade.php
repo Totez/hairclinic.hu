@@ -11,36 +11,36 @@
 
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('hairclinic') }}">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('hairclinic') }}">
 						<span style="font-weight:500;font-size:14px;">HairClinic</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('hairclinic-extra') }}">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('hairclinic_extra') }}">
 						<span style="font-weight:500;font-size:14px;">HairClinic<br>Extra</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('hairclinic-men') }}">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('hairclinic_men') }}">
 						<span style="font-weight:500;font-size:14px;">HairClinic<br>Men</span>
 					</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('good-to-know') }}">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('good_to_know') }}">
 						<span style="font-weight: 300;font-size:14px;">Jó tudni</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark load-animation fadeIn" href="{{ url('advice-of-zsidro') }}">
+					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('advice') }}">
 						<span style="font-weight: 300;font-size:14px;">Zsidró tanácsai</span>
 					</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="bg-white nav-link text-dark widthIn justify-content-center load-animation" href="{{ url('buying') }}">
+					<a class="bg-white nav-link text-dark widthIn justify-content-center load-animation" href="{{ route('buy') }}">
 						<span class="load-animation">
 							<span class="load-animation">Vásárlás</span>
 							<img class="mx-3 load-animation" src="{{ asset("images/icon-buy.svg") }}" style="margin-top:-5px;">

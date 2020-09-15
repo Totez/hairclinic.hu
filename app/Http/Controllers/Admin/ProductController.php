@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entities\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Validation\ValidationException;
 
 class ProductController extends AdminController {
@@ -50,5 +51,15 @@ class ProductController extends AdminController {
         $request->session()->flash("success", "Termékek sikeresen elmentve.");
 
         return response()->redirectToRoute("admin.product.list");
+    }
+
+    public function selfUpdate(Request $request) {
+        Artisan::command("product:update", function () {
+
+        });
+
+        $request->session()->flash("success", "Termékek sikeresen frissítve.");
+
+        return redirect()->back();
     }
 }

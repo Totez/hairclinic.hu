@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\PageContent;
 use App\Entities\Product;
 use App\Services\PageContentService;
+use App\Services\PageImageService;
 
 
 class HomeController extends AbstractController {
@@ -15,12 +16,20 @@ class HomeController extends AbstractController {
     protected $pageContentService;
 
     /**
+     * @var PageImageService
+     */
+    protected $pageImageService;
+
+    /**
      * HomeController constructor.
      * @param PageContentService $pageContentService
+     * @param PageImageService $pageImageService
      */
-    public function __construct(PageContentService $pageContentService) {
+    public function __construct(PageContentService $pageContentService, PageImageService $pageImageService) {
         $this->pageContentService = $pageContentService;
+        $this->pageImageService = $pageImageService;
     }
+
 
     public function home() {
 
@@ -109,12 +118,39 @@ class HomeController extends AbstractController {
             "page_contents" => $pageContents
         ]);
     }
-    public function adviceOfZsidro() {
 
-        $pageContents = "";
+    public function advice() {
+
+        $pageContents = $this->pageContentService->getContentsForPage("advice");
+        $pageImages = $this->pageImageService->getImagesForPage("advice");
 
         return response()->view("advice-of-zsidro", [
-            "page_contents" => $pageContents
+            "page_contents" => $pageContents,
+            "page_images" => $pageImages
+        ]);
+    }
+
+    public function buy() {
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_extra", "rossmann_hc_extra", "dm_hc_men", "rossmann_hc_men"];
+
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
+
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
+
+        $lastUpdated = $products->min(function (Product $product) {
+            return $product->updated_at;
+        });
+
+        return response()->view("buy", [
+            "products" => $product_infos,
+            "last_updated" => $lastUpdated
         ]);
     }
 }
