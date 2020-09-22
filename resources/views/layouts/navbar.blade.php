@@ -34,7 +34,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('advice') }}">
-						<span style="font-weight: 300;font-size:14px;">Zsidró tanácsai</span>
+						<span style="font-weight: 500;font-size:14px;">Zsidró Tamás <br>tanácsai</span>
 					</a>
 				</li>
 			</ul>

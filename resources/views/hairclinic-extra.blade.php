@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-12 col-md-5 offset-md-7" id="dosage">
                     <div class="content d-flex align-items-center row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-8">
                             <p class="text-xl">
                                 {!! $page_contents["hairclinic_extra"]["dosage"]["content"] !!}
                             </p>
@@ -122,7 +122,7 @@
 {{--                                    <h6 class="text-green mt-5 font-weight-light" style="margin-bottom:35px;">30 kapszula</h6>--}}
 
                                     {{-- rossmann --}}
-                                    <a href="{{ $products["rossmann_hc_extra"]["url"] }}" target="blank">
+                                    <a href="{{ $products["rossmann_hc_extra"]["url"] }}" target="blank" style="text-decoration: none;">
                                         <div class="row border-green px-1 py-3 align-items-center my-4 hc-hover mx-auto mx-md-0 position-relative">
                                             <div class="col-7">
                                                 <img src="{{ asset("images/logo-rossmann.png") }}">

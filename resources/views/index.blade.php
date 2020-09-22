@@ -51,7 +51,7 @@
 						</div>
 						<div id="descriptions" class="col-12 col-lg-4">
 
-							<div class="products text-center text-lg-left" style="font-style:italic;">
+							<div class="products text-center text-lg-left">
 								<div data-count="0" class="title active">
 									<h1 class="d-block p-type">
 										HairClinic

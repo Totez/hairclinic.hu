@@ -18,13 +18,13 @@ class PageContentSeeder extends Seeder
                 "key" => "home.slogen",
                 "page" => "home",
                 "title" => "Szlogen",
-                "content" => "Szlogen"
+                "content" => "<i>A szép és egészséges hajért fontos tudnod,<br>hogyan tápláld és kezeld megfelelően a hajadat</i>"
             ],
             [
                 "key" => "home.hc",
                 "page" => "home",
                 "title" => "hc",
-                "content" => "HairClinic leírás"
+                "content" => "Búzacsíraolajjal és aranyköles-kivonattal a haj táplálására a gyökereken keresztül."
             ],
             [
                 "key" => "hairclinic.description",

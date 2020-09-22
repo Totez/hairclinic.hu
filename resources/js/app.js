@@ -22,6 +22,7 @@ $(function(){
 		$("#main-menu a").click(function(e){
 			e.preventDefault();
 			const url = $(this).attr("href");
+			console.log(url);
 			$(".blanket, .blanket img").fadeIn(300, function(){
 				window.location.href = url;
 			});
@@ -66,13 +67,13 @@ $(function(){
 					});
 
 
-				},500)
+				},300)
 
 			});
 		} else {
 			visibleAnimatedItem(false);
 		}
-	},500)
+	},300)
 
 
 	function visibleAnimatedItem(animation){
