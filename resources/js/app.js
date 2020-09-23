@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./cookiebar.js');
 var lax = require('lax.js');
 // require('./test');
 
@@ -471,6 +472,36 @@ if($("#product-nav").length > 0){
 		});
 	},500)
 }
+
+
+
+
+//placeholderek a contact formhoz
+
+$(function(){
+
+	$(".contactInput input, .contactInput textarea").keydown(function(event) {
+
+		const placeholder = $(this).parent().find(".placeholder");
+		
+		placeholder.addClass("completed");
+	});
+
+	$(".contactInput input, .contactInput textarea").keyup(function(event) {
+
+		const placeholder = $(this).parent().find(".placeholder");
+		const error = $(this).parent().find(".error");
+		console.log(placeholder);
+
+		if($(this).val() !==  ""){
+			placeholder.addClass("completed");
+			error.hide();
+		} else {
+			placeholder.removeClass("completed");
+			error.fadeIn();
+		}
+	});
+})
 
 
 

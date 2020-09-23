@@ -17,11 +17,43 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script>
+        var cookies = {};
+        $.each(document.cookie.split(';'), function(index, el) {
+            cookies[el.split('=')[0].trim()] = el.split('=')[1].trim()
+        });
+
+        function enableCookies(){
+            // IDE JÖHET MINDEN AMI COOKIE-KAT HASZNÁL
+        }
+            
+        if(cookies['cb-enabled'] == "accepted"){
+            enableCookies();
+        } else console.log("cookie-k nincsenek engedélyezve");
+
+        $(function(){
+            $.cookieBar({
+                message: 'Weboldalunk annak érdekében, hogy jobb felhasználói élményt biztosítson cookie-kat használ.',
+                acceptText: 'Beleegyezem a sütik használatába',
+                declineText: 'Disable Cookies',
+                bottom: true,
+                fixed: true,
+                zindex: 99999999999999,
+                acceptFunction: function(){
+                    enableCookies();
+                },
+                otherButton: true,
+                otherText: 'Egyéb Információk',
+                otherModal: '#cookieModal',
+            });
+        })
+    </script>
+
 </head>
 <body {{-- class="disable-scrolling" --}}>
 
 	{{-- teszt --}}
-		<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 99999999;">
+{{-- 		<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 99999999;">
 			<div class="d-sm-none">XS</div>
 			<div class="d-none d-sm-block d-md-none">SM</div>
 			<div class="d-none d-md-block d-lg-none">MD</div>
@@ -48,7 +80,7 @@
                 <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
                 <div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div><div class="layouts col-1 h-100"></div>
             </div>
-        </div>
+        </div> --}}
     {{-- teszt --}}
 
 
@@ -72,6 +104,8 @@
             @include('layouts.footer')
 
         </footer>
+        
+        @include('layouts.modals')
     </div>
 </body>
 </html>

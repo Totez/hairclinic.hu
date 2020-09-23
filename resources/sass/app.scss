@@ -5,6 +5,7 @@
 @import "bootstrap";
 @import "h-tags";
 @import "animations";
+@import "cookiebar";
 // @import "./on-page-scroll";
 
 html, body{
@@ -352,4 +353,20 @@ footer{
 }
 .triggerFadeIn{
 	opacity: 0;
+}
+.contactInput{
+	position: relative;
+	.placeholder{
+		font-size:16px;
+		position: absolute;
+		transition:0.1s;
+		pointer-events: none;
+		opacity: 0.7;
+		&.completed{
+			opacity: 1;
+			font-size: 12px;
+		    margin-top: -30px;
+		    margin-left: -1rem;
+		}
+	}
 }

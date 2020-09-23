@@ -92,8 +92,8 @@
 				</div>
 				<div class="col-12 col-md-5 offset-md-7" id="dosage">
 					<div class="content d-flex align-items-center row">
-						<div class="col-12 col-md-8">
-							<p class="text-xl">
+						<div class="col-12 col-md-9">
+							<p class="text-lg">
                                 {!! $page_contents["hairclinic"]["dosage"]["content"] !!}
 							</p>
 						</div>

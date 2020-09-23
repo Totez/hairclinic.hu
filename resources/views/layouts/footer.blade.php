@@ -6,31 +6,28 @@
 				<nav class="lax" {{-- data-lax-translate-y="0 0, 100 200" data-lax-anchor="footer" --}}>
 					<div class="row">
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Hairclinic</a>
+							<a class="nav-link text-dark small" href="{{ route('hairclinic') }}">Hairclinic</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Jó tudni</a>
+							<a class="nav-link text-dark small" href="{{ route('good_to_know') }}">Jó tudni</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Kapcsolat</a>
+							<a class="nav-link text-dark small" href="" data-toggle="modal" data-target="#contactModal">Kapcsolat</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Haiclinic Extra</a>
+							<a class="nav-link text-dark small" href="{{ route('hairclinic_extra') }}">Haiclinic Extra</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Vélemények</a>
+							<a class="nav-link text-dark small" href="{{ route('advice') }}">Zsidró Tamás tanácsai</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Adatkezelési szabályzat</a>
+							<a class="nav-link text-dark small" href="https://www.perrigodocs.com/privacy/en/default.aspx" target="_blank">Adatkezelési szabályzat</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Hairclinic Men</a>
+							<a class="nav-link text-dark small" href="{{ route('hairclinic_men') }}">Hairclinic Men</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Vásárlás</a>
-						</div>
-						<div class="col-4">
-							<a class="nav-link text-dark small" href="">Jogi nyilatkozat</a>
+							<a class="nav-link text-dark small" href="{{ route('buy') }}">Vásárlás</a>
 						</div>
 					</div>
 				</nav>
