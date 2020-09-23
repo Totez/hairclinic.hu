@@ -505,3 +505,31 @@ $(function(){
 
 
 
+$(function(){
+	$("#sendMessage").click(function(){
+		$("#contactModal").modal("hide");
+		const form = $("this").parents("form");
+
+		$.ajax({
+			url: form.attr("action"),
+			type: 'default GET (Other values: POST)',
+			dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+			data: {param1: 'value1'},
+		})
+		.done(function(data) {
+			if(data.success){
+				$("#messageModal").modal("open");
+			} else {
+				alert("hiba");
+			}
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+
+	});
+	
+})

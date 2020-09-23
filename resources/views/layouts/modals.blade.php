@@ -27,7 +27,7 @@
 						<span class="text-sm error" style="color:#D79797;display: none;">Írja meg üzenetét</span>
 					</div>
 
-					<input class="form-control btn btn-primary text-white w-50 mx-auto border-0" type="submit" name="">
+					<input class="form-control btn btn-primary text-white w-50 mx-auto border-0" type="submit" name="sendMessage" id="sendMessage">
 					
 					
 					<div class="my-5">
