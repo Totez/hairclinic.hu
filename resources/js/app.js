@@ -506,8 +506,8 @@ $(function(){
 
 
 $(function(){
-	$("#sendMessage").click(function(){
-		$("#contactModal").modal("hide");
+	$("#sendMessage").click(function(e){
+		e.preventDefault();
 		const form = $("this").parents("form");
 
 		$.ajax({
@@ -518,6 +518,7 @@ $(function(){
 		})
 		.done(function(data) {
 			if(data.success){
+				$("#contactModal").modal("hide");
 				$("#messageModal").modal("open");
 			} else {
 				alert("hiba");
