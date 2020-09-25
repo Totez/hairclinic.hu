@@ -450,6 +450,9 @@ function productScroller(productCount){
 
 	$('.product-descriptions .description').removeClass("active");
 	$('.product-descriptions .description[data-count="' + productCount + '"]').addClass("active");
+
+	$('.indicator-wrapper .indicator').removeClass("active");
+	$('.indicator-wrapper .indicator[data-count="' + productCount + '"]').addClass("active");
 }
 
 

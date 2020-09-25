@@ -370,3 +370,22 @@ footer{
 		}
 	}
 }
+.indicator-wrapper{
+	position: absolute;
+	height:30px;
+	top:0;
+	margin-top:-60px;
+	.indicator{
+		width:6px;
+		height:6px;
+		border:2px solid #E2EAD5;
+		border-radius: 100%;
+		display: block;
+		margin:5px 0;
+		transition:0.2s;
+		&.active{
+			background: #000;
+			border-color:#000;
+		}
+	}
+}

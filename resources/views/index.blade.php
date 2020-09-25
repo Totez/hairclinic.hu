@@ -35,7 +35,12 @@
 				<div class="col-12 vh-100">
 					<div class="row h-100 align-items-center">
 						<div class="col-7 offset-2 bg-white bg-white-div"></div>
-						<div id="product-images" class="col-4 col-lg-3 d-flex align-items-center">
+						<div id="product-images" class="col-4 col-lg-3 d-flex align-items-center position-relative">
+							<div class="indicator-wrapper">
+								<a data-target="products" class="scroll-to-element" href=""><span data-count="0" class="indicator"></span></a>
+								<a data-target="product2" class="scroll-to-element" href=""><span data-count="1" class="indicator"></span></a>
+								<a data-target="product3" class="scroll-to-element" href=""><span data-count="2" class="indicator active"></span></a>
+							</div>
 							<div class="animImageContainer w-100">
 								<div data-count="0" class="w-100 slide-image active" style="background-image: url({{ asset("images/slide_image.png") }});"></div>
 								<div data-count="1" class="w-100 slide-image" style="background-image: url({{ asset("images/slide_image_extra.png") }});"></div>
@@ -107,12 +112,12 @@
 		</div>
 	</section>
 
-	<section data-slide-duration="500" class="placeholder bg-light vh-100 py-5">
+	<section data-slide-duration="500" id="product2" class="placeholder bg-light vh-100 py-5">
 		<div class="container homeProductContainer">
 		</div>
 	</section>
 
-	<section data-slide-duration="500" class="placeholder bg-light py-5" style="height:150vh;">
+	<section data-slide-duration="500" id="product3" class="placeholder bg-light py-5" style="height:150vh;">
 		<div class="container homeProductContainer">
 		</div>
 	</section>

@@ -90,7 +90,6 @@
                     	</div>
 					</div>
 
-
 				    <div class="row py-5">
 				    	<div class="col-10 mx-auto">
 				    		<div style="position: relative;padding-bottom: 56.25%;height: 0;margin-bottom:-300px;z-index: 10;">
