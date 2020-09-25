@@ -85,7 +85,12 @@
                                         {!! $page_contents["home"]["hc"]["content"] !!}
 									</p>
 									<div class="pr-5">
-										<a href="{{ route("hairclinic") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic") }}" class="cta mr-5">
+											<span class="text">Ismertető</span>
+											<span class="arrow">
+												<img src="{{asset("images/icon-arrow-next.svg")}}">
+											</span>
+										</a>
 									</div>
 								</div>
 								<div data-count="1" class="description">
@@ -93,7 +98,12 @@
 										A tápanyagokat több órán keresztül, elnyújtva juttatja a véráramba.
 									</p>
 									<div class="pr-5">
-										<a href="{{ route("hairclinic_extra") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic_extra") }}" class="cta mr-5">
+											<span class="text">Ismertető</span>
+											<span class="arrow">
+												<img src="{{asset("images/icon-arrow-next.svg")}}">
+											</span>
+										</a>
 									</div>
 								</div>
 								<div data-count="2" class="description">
@@ -101,7 +111,12 @@
 										Hialuronsav, koffein és szabalpálma-kivonat a szép és egészséges férfihajért.
 									</p>
 									<div class="pr-5">
-										<a href="{{ route("hairclinic_men") }}" class="cta mr-5">Ismertető</a>
+										<a href="{{ route("hairclinic_men") }}" class="cta mr-5">
+											<span class="text">Ismertető</span>
+											<span class="arrow">
+												<img src="{{asset("images/icon-arrow-next.svg")}}">
+											</span>
+										</a>
 									</div>
 								</div>
 							</div>

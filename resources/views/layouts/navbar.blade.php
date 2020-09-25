@@ -41,10 +41,10 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="bg-white nav-link text-dark widthIn justify-content-center load-animation" href="{{ route('buy') }}">
-						<span class="load-animation">
+						{{-- <span class="load-animation"> --}}
 							<span class="load-animation">Vásárlás</span>
 							<img class="mx-3 load-animation" src="{{ asset("images/icon-buy.svg") }}" style="margin-top:-5px;">
-						</span>
+						{{-- </span> --}}
 					</a>
 				</li>
 			</ul>

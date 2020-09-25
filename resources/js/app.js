@@ -116,7 +116,7 @@ $(function(){
 
 
 
-			});
+			}, 150);
 		} else{
 			$(".load-animation").css({
 				transition:0,

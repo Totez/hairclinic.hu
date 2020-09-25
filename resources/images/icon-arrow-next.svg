@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="14px" viewBox="0 0 36 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-Arrow-Next</title>
+    <g id="Symbol" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tab-Dektop-Right" transform="translate(-98.000000, -25.000000)">
+            <g id="Group" transform="translate(91.000000, 8.000000)">
+                <rect id="Surface" x="0" y="0" width="48" height="48"></rect>
+                <polygon id="Path" fill="#292323" points="36.0502525 17.636039 42.363961 23.9497475 42.363961 24.0502525 36.0502525 30.363961 34.636039 28.9497475 38.586 24.999039 7 25 7 23 38.585 22.999039 34.636039 19.0502525"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
