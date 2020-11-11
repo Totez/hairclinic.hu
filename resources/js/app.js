@@ -8,8 +8,9 @@ var navHeight = 104;
 var counter;
 var lastScrollTop = 0;
 var currentSection = 0;
-var isScroll = true;
+var isScroll = false;
 var animationLoaded = false;
+var timer;
 
 
 
@@ -54,6 +55,9 @@ $(function(){
 	}
 
 	//Kezdeti oldalbetöltés késleltetve
+	if($("#slogen").length > 0){
+		$("html, body").addClass("disable-scrolling");
+	}
 	setTimeout(function(){
 		if($(".loadingPage").length > 0){
 
@@ -63,7 +67,11 @@ $(function(){
 
 					$(".loadingPage").fadeOut(200, function(){
 
-						visibleAnimatedItem(true);
+						visibleAnimatedItem(true, function(){
+							console.log("engedélyezve");
+							isScroll = true;
+							$("html, body").removeClass("disable-scrolling");
+						});
 
 					});
 
@@ -77,12 +85,14 @@ $(function(){
 	},300)
 
 
-	function visibleAnimatedItem(animation){
+	function visibleAnimatedItem(animation, onEnd = function(){} ){
 		if(animation){
 			backCounter(0, $(".load-animation").length, function(){
 				// console.log("Vége");
 				animationLoaded = true;
 				$("body").removeClass("disable-scrolling");
+
+				onEnd();
 
 			},function(i){
 				const elem = $($(".load-animation")[i]);
@@ -268,41 +278,45 @@ $(function(){
 		}
 		lastScrollTop = st;
 
-
 		//autoscroll
 		if(animationLoaded){
 			const bodyScrollTop = $(document).scrollTop();
 			const sections = $(document).find('[data-current-section]');
+			const sectionHeight = vh(100) - navHeight;
+			const currentSection = Math.ceil(bodyScrollTop / sectionHeight) - 1;
+			let targetSection;
+
 			if(isScroll){
+				console.log("görgetés");
 				isScroll = false;
-				$("body").addClass("disable-scrolling");
+				console.log(isScroll);
+
+				$("html, body").addClass("disable-scrolling");
 
 				if(scrollDirection == "up"){
-					if(currentSection > 0){
-						currentSection--;
-					}
+					targetSection = $(sections[currentSection - 1]);
 				} else {
-					if(currentSection < sections.length){
-						currentSection++;
-					}
+					targetSection = $(sections[currentSection + 1]);
 				}
 
+				console.log(currentSection);
+
+				if (targetSection.length > 0){
+					$([document.documentElement]).animate({
+					    scrollTop: targetSection.offset().top
+					}, 400, function(){
+						setTimeout(function(){
+							isScroll = true;
+							$("html, body").removeClass("disable-scrolling");
+							console.log(isScroll);
+						},1000);
+					});
+				} else {
+					isScroll = true;
+					$("html, body").removeClass("disable-scrolling");
+				}
+			} else {
 				e.preventDefault();
-
-				console.log("autoscrolling...");
-
-				const targetSection = $(sections[currentSection]);
-				let duration = targetSection.data("slide-duration");
-				if(duration == undefined) duration = 500;
-
-				$([document.documentElement, document.body]).animate({
-				    scrollTop: targetSection.offset().top
-			    }, duration, function(){
-			    	setTimeout(function(){
-				    	$("body").removeClass("disable-scrolling");
-				    	isScroll = true;
-			    	},500);
-			    });
 			}
 		}
 
@@ -401,6 +415,24 @@ $(function(){
 				}
 			});
 		}
+
+		//custom scrollbar
+		if($(".custom-scrollbar").length > 0){
+			const bodyHeight = $("body").height();
+			const bodyScrollTop = $(document).scrollTop();
+			const scrollIndicator = $('.scroll-indicator');
+			const scrollIndicatorHeight = scrollIndicator.height();
+			const top = (bodyScrollTop / (bodyHeight - vh(100) + navHeight)) * (vh(100) - scrollIndicatorHeight)
+
+			scrollIndicator.css("top", top);
+
+			clearTimeout(timer);
+			$(".custom-scrollbar").addClass("active");
+			
+			timer = setTimeout(function(){
+				$(".custom-scrollbar").removeClass("active");
+			},500);
+		}
 		
 	});
 })
@@ -467,7 +499,7 @@ if($("#product-nav").length > 0){
 			const footerScrollTop = $(document).height() - $("footer").outerHeight(true) - $(window).scrollTop() - 100; 
 
 			if(productNavBottom > footerScrollTop){
-				console.log("asd");
+				
 				$("#product-nav").css("top", footerScrollTop - $productNav.outerHeight(true) + navHeight);
 			} else {
 				$("#product-nav").css("top", navHeight);
@@ -537,3 +569,16 @@ $(function(){
 	});
 	
 })
+
+
+
+
+
+
+
+
+
+function vh(v) {
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  return (v * h) / 100;
+}

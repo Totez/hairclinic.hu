@@ -50,7 +50,7 @@
     </script>
 
 </head>
-<body {{-- class="disable-scrolling" --}}>
+<body>
 
 	{{-- teszt --}}
 {{-- 		<div class="position-absolute" style="left:0;top:0;background: lightgreen; width:30px;height:30px;z-index: 99999999;">
@@ -92,9 +92,6 @@
         </header>
 
 
-
-
-
         <main class="main">
             @yield('content')
         </main>
@@ -106,6 +103,10 @@
         </footer>
         
         @include('layouts.modals')
+
+        <div class="custom-scrollbar">
+            <div class="scroll-indicator"></div>
+        </div>
     </div>
 </body>
 </html>
