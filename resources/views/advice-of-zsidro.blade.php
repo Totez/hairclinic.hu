@@ -18,11 +18,11 @@
                     <div class="row align-items-center">
                     	<div class="col-6">
                     		<p class="text-green p-5 text-sm">
-                    			{!! $page_contents["advice"]["advice"]['a0']['content'] !!}
+                    			{!! $page_contents["advice"]['headline']['content'] !!}
                     		</p>
                     	</div>
                     	<div class="col-6">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a0"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a0"]["name"] }}" style="top:-400px;position:absolute;width:397px;">
+                            <img src="{{ asset($page_images["advice"]["headline"]["path"]) }}" alt="{{ $page_images["advice"]["headline"]["name"] }}" style="top:-400px;position:absolute;width:397px;">
                     	</div>
                     </div>
 
@@ -34,129 +34,56 @@
                     	</div>
                     </div>
 
-                    <div class="row align-items-center" style="margin:150px 0;">
-                    	<div class="col">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a1"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a1"]["name"] }}" style="width:397px;margin-left:-200px;">
-                    	</div>
-                    	<div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a1']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                    			{{ $page_contents["advice"]["advice"]['a1']['content'] }}
-                    		</p>
-                            
-                    	</div>
-                    </div>
-                    
-                    <div class="row align-items-center" style="margin:150px 0;">
-                    	<div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a2']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                            	{{ $page_contents["advice"]["advice"]['a2']['content'] }}
-                    		</p>
-                    	</div>
-                    	<div class="col text-right">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a2"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a2"]["name"] }}" style="width:260px;margin-right:50px;">
-                    	</div>
-                    </div>
-                    
-                    <div class="row align-items-center" style="margin:150px 0;">
-                    	<div class="col">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a3"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a3"]["name"] }}" style="width:536px;margin-left:-200px;">
-                    	</div>
-                    	<div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a3']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                            	{{ $page_contents["advice"]["advice"]['a3']['content'] }}
-                    		</p>
-                    	</div>
-                    </div>
-                    
-                    <div class="row align-items-center" style="margin:150px 0;">
-                    	<div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a4']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                            	{{ $page_contents["advice"]["advice"]['a4']['content'] }}
-                    		</p>
-                    	</div>
-                    	<div class="col text-right">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a4"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a4"]["name"] }}" style="width:397px;margin-right:-200px;">
-                    	</div>
-                    </div>
+
+
+
+
+
+                @foreach($page_contents["advice"]["advice"] as $i => $value)
+                   @if($loop->odd) 
+                        <div class="row align-items-center" style="margin:150px 0;">
+                        	<div class="col">
+                                <img src="{{ asset($page_images["advice"]["advice"][$i]["path"]) }}" alt="{{ $page_images["advice"]["advice"][$i]["name"] }}" style="width:397px;margin-left:-200px;">
+                        	</div>
+                        	<div class="col">
+                                <h3>
+                                    {{ $value['title'] }}
+                                </h3>
+                                <p class="text-green p-5 text-lg" style="font-style:italic;">
+                        			{{ $value['content'] }}
+                        		</p>
+                                
+                        	</div>
+                        </div>
+                    @else
+                        <div class="row align-items-center" style="margin:150px 0;">
+                        	<div class="col">
+                                <h3>
+                                    {{ $value['title'] }}
+                                </h3>
+                                <p class="text-green p-5 text-lg" style="font-style:italic;">
+                                	{{ $value['content'] }}
+                        		</p>
+                        	</div>
+                        	<div class="col text-right">
+                                <img src="{{ asset($page_images["advice"]["advice"][$i]["path"]) }}" alt="{{ $page_images["advice"]["advice"][$i]["name"] }}" style="width:397px;margin-right:-200px;">
+                        	</div>
+                        </div>
+                    @endif
+                @endforeach
+
+
 
                     <div class="row align-items-center" style="margin:150px 0;">
-                        <div class="col">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a5"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a5"]["name"] }}" style="width:260px;margin-left:50px;">
-                        </div>
-                        <div class="col">
+                        <div class="col text-center">
                             <h3>
-                                {{ $page_contents["advice"]["advice"]['a5']['title'] }}
+                                {{ $page_contents["advice"]['footnote']['title'] }}
                             </h3>
                             <p class="text-green p-5 text-lg" style="font-style:italic;">
-                                {{ $page_contents["advice"]["advice"]['a5']['content'] }}
+                                {{ $page_contents["advice"]['footnote']['content'] }}
                             </p>
                         </div>
                     </div>
-
-                    <div class="row align-items-center" style="margin:150px 0;">
-                        <div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a6']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                                {{ $page_contents["advice"]["advice"]['a6']['content'] }}
-                            </p>
-                        </div>
-                        <div class="col text-right">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a6"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a5"]["name"] }}" style="width:260px;margin-left:50px;">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center" style="margin:150px 0;">
-                        <div class="col">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a7"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a5"]["name"] }}" style="width:260px;margin-left:50px;">
-                        </div>
-                        <div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a7']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                                {{ $page_contents["advice"]["advice"]['a7']['content'] }}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center" style="margin:150px 0;">
-                        <div class="col">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a8']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                                {{ $page_contents["advice"]["advice"]['a8']['content'] }}
-                            </p>
-                        </div>
-                        <div class="col text-right">
-                            <img src="{{ asset($page_images["advice"]["advice"]["a8"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a5"]["name"] }}" style="width:260px;margin-left:50px;">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center" style="margin:150px 0;">
-                    	<div class="col text-center">
-                            <h3>
-                                {{ $page_contents["advice"]["advice"]['a9']['title'] }}
-                            </h3>
-                            <p class="text-green p-5 text-lg" style="font-style:italic;">
-                            	{{ $page_contents["advice"]["advice"]['a9']['content'] }}
-                    		</p>
-                    	</div>
-					</div>
 
 				    <div class="row py-5">
 				    	<div class="col-10 mx-auto">

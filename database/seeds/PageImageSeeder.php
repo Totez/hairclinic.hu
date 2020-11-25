@@ -15,7 +15,7 @@ class PageImageSeeder extends Seeder
 
         $pageImages = [
             [
-                "key" => "advice.advice.a0",
+                "key" => "advice.headline",
                 "page" => "advice",
                 "name" => "Tanács illusztráció",
                 "path" => "storage/advice/zsidro.png"
@@ -54,25 +54,19 @@ class PageImageSeeder extends Seeder
                 "key" => "advice.advice.a6",
                 "page" => "advice",
                 "name" => "Tanács illusztráció",
-                "path" => "storage/advice/illustration-5.png"
+                "path" => "storage/advice/illustration-6.png"
             ],
             [
                 "key" => "advice.advice.a7",
                 "page" => "advice",
                 "name" => "Tanács illusztráció",
-                "path" => "storage/advice/illustration-5.png"
+                "path" => "storage/advice/illustration-7.png"
             ],
             [
                 "key" => "advice.advice.a8",
                 "page" => "advice",
                 "name" => "Tanács illusztráció",
-                "path" => "storage/advice/illustration-5.png"
-            ],
-            [
-                "key" => "advice.advice.a9",
-                "page" => "advice",
-                "name" => "Tanács illusztráció",
-                "path" => "storage/advice/illustration-5.png"
+                "path" => "storage/advice/illustration-8.png"
             ]
         ];
 

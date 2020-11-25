@@ -13,7 +13,7 @@
 			<div class="row">
 
 				<div class="col-11 col-md-8 bg-white mx-auto py-5">
-					<h1 class="ml-md--100 position-fixed">Jó tudni</h1>
+					<h1 class="ml-md--100 position-fixed font-weight-bold">Jó tudni</h1>
 
 					<div class="row">
 

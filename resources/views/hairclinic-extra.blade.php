@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <img src="{{ asset('images/illustration.png') }}" class="product-image triggerFadeIn">
+                            <img src="{{ asset('images/slide_image.png') }}" class="product-image triggerFadeIn">
                         </div>
                     </div>
 
