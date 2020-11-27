@@ -401,3 +401,96 @@ footer{
 		}
 	}
 }
+
+#advice-of-zsidro{
+	.headline{
+		.text{
+			padding:3rem 7rem 3rem 7rem;
+			@include media-breakpoint-down(lg) {
+				padding:0;
+				padding:3rem;
+			}
+		}
+		.image{
+			img{
+				width:397px;
+				margin-top:-400px;
+			}
+			@include media-breakpoint-down(md) {
+				padding:2rem;
+				text-align:center;
+				img{
+					width:100%;
+					max-width: 350px;
+					margin-top:-330px;
+				}
+			}
+		}
+	}
+	.title{
+		margin-bottom:50px;
+		.text{
+			font-size:67.3px;
+			margin-right:-150px;
+			line-height: 1.2;
+			position:absolute;
+			display: block;
+			font-weight:400;
+			padding-left:7px;
+			@include media-breakpoint-down(lg) {
+				font-size:2rem;
+				display: inline;
+				position: unset;
+				margin-right:0;
+			}
+		}
+	}
+	.advice{
+		margin:150px 0;
+		@include media-breakpoint-down(md) {
+			margin:20px 0;
+		}
+		@include media-breakpoint-down(lg) {
+			margin:80px 0;
+		}
+		.image{
+			img{
+				width:123%;
+				max-width:397px;
+				max-height:397px;
+				object-fit:contain;
+				margin-left:-200px;
+				@include media-breakpoint-down(lg){
+					width:100%!important;
+					margin-left:0!important;
+					margin-right:0!important;
+				}
+			}
+			@include media-breakpoint-down(lg){				
+				padding-left:0!important;
+				text-align:center!important;
+				padding:1rem!important;
+			}
+
+		}
+		.description{
+			h3{
+				padding-right:7rem;
+				@include media-breakpoint-down(lg){
+					padding-left:0!important;
+					padding-right:0!important;
+					margin-top:3rem;
+				}
+			}
+			p{
+				font-style:italic;
+				padding-right:7rem;
+				@include media-breakpoint-down(lg){
+					padding-right:0!important;
+					padding-left:0!important;
+				}
+			}
+		}
+	}
+}
+
