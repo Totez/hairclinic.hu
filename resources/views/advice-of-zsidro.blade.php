@@ -27,13 +27,13 @@
                     </div>
 
                     <div class="row align-items-center" style="margin-bottom:50px;">
-                    	<div class="offset-6 col-6" style="height:200px;">
-                			<span class="text-left" style="font-size:67.3px;margin-right:-150px;line-height: 1.2;position:absolute;display: block;font-weight:400;padding-left:7px;">
+                    	<div class="col-12 text-center" style="height:200px;">
+                			<span class="w-100" style="font-size:67.3px;margin-right:-150px;line-height: 1.2;position:absolute;display: block;font-weight:400;padding-left:7px;">
 		                        {!! $page_contents["advice"]["description"]["content"] !!}
                 			</span>
                     	</div>
                     </div>
-                    
+
                     <div class="row align-items-center" style="margin:150px 0;">
                         <div class="col-4">
                             <img src="{{ asset($page_images["advice"]["advice"]["a1"]["path"]) }}" alt="{{ $page_images["advice"]["advice"]["a1"]["name"] }}" style="width:123%;max-width:397px;max-height:397px;object-fit:contain;margin-left:-200px;">
