@@ -56,7 +56,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-10">
-                            <p class="my-5 text-green text-lg pt-5 triggerFadeIn" style="font-style: italic;">
+                            <p class="my-5 text-green text-md pt-5 triggerFadeIn" style="font-style: italic;">
                                 {!! $page_contents["hairclinic_men"]["description"]["content"] !!}
                             </p>
                         </div>
@@ -94,7 +94,7 @@
                 <div class="col-12 col-md-5 offset-md-7" id="dosage">
                     <div class="content d-flex align-items-center row">
                         <div class="col-12 col-md-8">
-                            <p class="text-xl">
+                            <p class="text-lg">
                                 {!! $page_contents["hairclinic_men"]["dosage"]["content"] !!}
                             </p>
                         </div>

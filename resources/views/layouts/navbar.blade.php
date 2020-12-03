@@ -29,7 +29,7 @@
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
 					<a class="nav-link text-dark load-animation fadeIn" href="{{ route('good_to_know') }}">
-						<span style="font-weight: 500;font-size:14px;">Jó tudni</span>
+						<span style="font-weight: 500;font-size:14px;">Hasznos</span>
 					</a>
 				</li>
 				<li class="nav-item">

@@ -30,7 +30,7 @@ class PageContentSeeder extends Seeder
                 "key" => "hairclinic.description",
                 "page" => "hairclinic",
                 "title" => "Leírás",
-                "content" => "Innovatív hatóanyag-kombináció a gyönyörű, egészséges hajért. Búzacsíraolajjal és aranyköles-kivonattal a haj táplálására a gyökereken keresztül. A HairClinic® kapszula intenzíven táplálja a hajhagymákat. Egyedülálló hatóanyag-kombinációja értékes tápanyagokkal látja el a hajhagymákat és rajtuk keresztül a hajszálakat, ezzel elősegítve a haj egészségének megőrzését. A különleges lágyzselatin kapszulának köszönhetően a HairClinic® összetevői gyorsan felszívódnak, és a véráramon keresztül eljutnak a hajszálak gyökereihez.",
+                "content" => "A HairClinic® kapszula intenzíven táplálja a hajhagymákat. Egyedülálló hatóanyag-kombinációja értékes tápanyagokkal látja el a hajhagymákat és rajtuk keresztül a hajszálakat, ezzel elősegítve a haj egészségének megőrzését. A különleges lágyzselatin kapszulának köszönhetően a HairClinic® összetevői gyorsan felszívódnak, és a véráramon keresztül eljutnak a hajszálak gyökereihez."
             ],
             [
                 "key" => "hairclinic.ingredients.aranykoles",

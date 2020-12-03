@@ -13,13 +13,13 @@
 			<div class="row">
 
 				<div class="col-11 col-md-8 bg-white mx-auto py-5">
-					<h1 class="ml-md--100 position-fixed font-weight-bold">Jó tudni</h1>
+					<h1 class="ml-md--100 position-fixed">Hasznos</h1>
 
 					<div class="row">
 
 						<div class="col-12 col-md-7 offset-md-4">
 
-							<p class="text-green py-5 text-lg" style="font-style:italic;">
+							<p class="text-green py-5 text-md" style="font-style:italic;">
                                 {!! $page_contents["good_to_know"]["description"]["content"] !!}
                             </p>
 

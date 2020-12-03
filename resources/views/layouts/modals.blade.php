@@ -27,17 +27,12 @@
 						<span class="text-sm error" style="color:#D79797;display: none;">Írja meg üzenetét</span>
 					</div>
 
-					<input class="form-control btn btn-primary text-white w-50 mx-auto border-0" type="submit" name="sendMessage" id="sendMessage">
+					<input class="form-control btn btn-primary text-white w-50 mx-auto border-0" type="submit" name="sendMessage" id="sendMessage" value="Küldés">
 					
 					
 					<div class="my-5">
 						<div class="row">
 							<div class="col-6">
-								<div class="px-3">
-									<a href="tel:+3619201570" class="text-green">+ 36 1 920 1570</a>
-								</div>
-							</div>
-							<div class="col-6 text-right">
 								<div class="px-3">
 									<a href="tel:+3619201570" class="text-green">+ 36 1 920 1570</a>
 								</div>
