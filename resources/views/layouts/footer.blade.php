@@ -9,7 +9,7 @@
 							<a class="nav-link text-dark small" href="{{ route('hairclinic') }}">Hairclinic</a>
 						</div>
 						<div class="col-4">
-							<a class="nav-link text-dark small" href="{{ route('good_to_know') }}">Jó tudni</a>
+							<a class="nav-link text-dark small" href="{{ route('good_to_know') }}">Hasznos</a>
 						</div>
 						<div class="col-4">
 							<a class="nav-link text-dark small" href="" data-toggle="modal" data-target="#contactModal">Kapcsolat</a>

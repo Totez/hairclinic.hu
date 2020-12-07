@@ -95,7 +95,7 @@
 								</div>
 								<div data-count="1" class="description">
 									<p class="text text-green text-lg" style="font-style:italic;">
-										A tápanyagokat több órán keresztül, elnyújtva juttatja a véráramba.
+										A kovaföldet, gránátalma-kivonatot, vitaminokat, és ásványi anyagokat több órán keresztül, elnyújtva juttatja a véráramba. 
 									</p>
 									<div class="pr-5">
 										<a href="{{ route("hairclinic_extra") }}" class="cta mr-5">
