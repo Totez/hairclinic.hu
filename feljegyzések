@@ -1,0 +1,74 @@
+feljegyzések
+
+max 1920 széles
+promt betűtipus
+
+loading screen: befade-el a logó plusz egy csík végig gut az oldalon
+
+
+
+Beérkezünk az indexre max height
+egyenként befadel a menü
+külön class legyen az animáció
+h1, h2, h3 fluid animáció 
+soronként ki van mszkolva a headline animációk:
+https://cubic-bezier.com/#.07,.78,.22,.96
+https://www.instagram.com/p/CCufuMEpphv/
+Betűnként érkezvenk be
+főoldal szekciók: h2 large body cta gomb, indikátor animációk kialszik a sütétbarna és kontúros zöld lesz előle
+a harclicik átíródik tipusra és beúszik flölé a hairclinic
+cta hover állapot:
+megvastagszik a körvonal
+
+
+termékoldal:
+aktív menü "föléhúzás" animálva megnő középről
+hover állapot besotétedik utána a kattintásből fog összemenni felülhúzássá
+mindegyik collapse nyitható
+
+
+jó tudni
+h1 large body
+
+hero position fixed és arra érkezik a tartalom
+
+Megbeszélés 
+
+hariclinic logó nem jó
+productoknák vastagabb a bet kissebb line-height
+menüpontok csak fadeljenek be
+vásárlás hettere jobbról balre megnő
+parallax hero háttér
+slogenes rész legyen magasabb 75vh
+kapjon ez is paralax csúszást felfelé
+product név lentről felfelé
+animációk lassítása
+hairclic befadel
+"extra" lentről befadel
+text csak fadeel
+csak befadel 1.re
+lábléc legyen magasabb
+footer 50vh legyen
+
+
+
+
+
+
+termékoldal packshot és menü középen legyen
+termékoldalon 3 féle méretű kép
+csak akkor  fadeljen be a szöveg a lenyitható elemkenék amikor már betöltődött
+becsukásnák ugyanaz
+ugyanezek a blokkok messzebb legyenek egymástól (paddingbottom 5em)
+görgetés közben fadeineljenek a termékoldalon a hatóanyagoknál
+árak egyforma méretűek legyenekl
+keretek legyenek zöld hoverek
+százalék jel csak akkor van ha akciós az ár
+
+jó tudni oldal
+jó tudni headline position fixed legyen
+
+vásárlásnál a packshotok legyenek nagyobbak
+termékkép mozgása nem kell a vásárlásnál
+nagyítás nem kell a vásárlásnál
+egymás után fadeljenek be majd a cuccok egy kártyán belül

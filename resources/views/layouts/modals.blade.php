@@ -7,7 +7,7 @@
 					<p class="text-lg">Omega Pharma Hungary Kft.</p>
 					<p class="my-3 text-sm text-green">
 						1138 Budapest, Magyarország	<br>
-						Madarász Viktor u. 47-49.
+						Madarász Viktor u. 47-49. 2. épület
 					</p>
 					<p>Írjon nekünk!</p>
 
@@ -32,9 +32,12 @@
 					
 					<div class="my-5">
 						<div class="row">
-							<div class="col-6">
+							<div class="col-12">
 								<div class="px-3">
-									<a href="tel:+3619201570" class="text-green">+ 36 1 920 1570</a>
+									<a href="tel:+3619201570" class="text-green">+ 36 1 920 1570</a><br>
+									<a target="_blank" href="www.omegapharma.hu" class="text-green">www.omegapharma.hu</a><br>
+									<a href="mailto:infohungary@perrigo.com">infohungary@perrigo.com</a>
+									<p style="font-size:12px;"" class="mt-3">Kérjük, ha bármely Omega Pharma Hungary Kft. által forgalmazott készítménnyel kapcsolatos mellékhatást, nemkívánatos hatást szeretne bejelenteni, illetve a készítmények alkalmazásával, minőségével kapcsolatos kérdése, észrevétele van, írjon a HU.safety@perrigo.com e-mail címre vagy hívja a <a href="tel:+3619201570">+ 36 1 920 1570</a> telefonszámot.</p>
 								</div>
 							</div>
 						</div>
