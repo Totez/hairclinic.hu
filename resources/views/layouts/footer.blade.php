@@ -37,10 +37,6 @@
 	<div class="position-absolute text-center mx-auto py-3" style="bottom:0;left:0;right:0;">
 		Az étrend-kiegészítő nem helyettesíti a kiegyensúlyozott, vegyes étrendet és az egészséges életmódot.
 		<br>
-<<<<<<< HEAD
-		A legutolsó frissítés dátuma: 2020.04.16
-=======
 		A legutolsó frissítés dátuma: {{ str_replace('-', '.', $products["rossmann_hc_30"]["updated_at"]->format("Y-m-d")) }}
->>>>>>> 2baca545f7aae47bab0451f5b3334a19372ed2ee
 	</div>
 </section>
