@@ -30,7 +30,7 @@ class PageContentSeeder extends Seeder
                 "key" => "hairclinic.description",
                 "page" => "hairclinic",
                 "title" => "Leírás",
-                "content" => "A HairClinic® kapszula intenzíven táplálja a hajhagymákat. Egyedülálló hatóanyag-kombinációja értékes tápanyagokkal látja el a hajhagymákat és rajtuk keresztül a hajszálakat, ezzel elősegítve a haj egészségének megőrzését. A különleges lágyzselatin kapszulának köszönhetően a HairClinic® összetevői gyorsan felszívódnak, és a véráramon keresztül eljutnak a hajszálak gyökereihez."
+                "content" => "A HairClinic® kapszula intenzíven táplálja a hajhagymákat. Hatóanyag-kombinációja értékes tápanyagokkal látja el a hajhagymákat és rajtuk keresztül a hajszálakat, ezzel támogatva a haj egészségének megőrzését. A lágyzselatin kapszulának köszönhetően a HairClinic® összetevői gyorsan felszívódnak, és a véráramon keresztül eljutnak a hajszálak gyökereihez."
             ],
             [
                 "key" => "hairclinic.ingredients.aranykoles",
