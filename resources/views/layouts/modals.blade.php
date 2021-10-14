@@ -9,7 +9,7 @@
 						1138 Budapest, Magyarország	<br>
 						Madarász Viktor u. 47-49. 2. épület
 					</p>
-					<p>Írjon nekünk!</p>
+					{{-- <p>Írjon nekünk!</p>
 
 					<div class="contactInput my-5">
 						<span class="placeholder text-green py-2 px-3">Ön neve</span>
@@ -28,17 +28,17 @@
 					</div>
 
 					<input class="form-control btn btn-primary text-white w-50 mx-auto border-0" type="submit" name="sendMessage" id="sendMessage" value="Küldés">
-					
-					
-					<div class="my-5">
+					 --}}
+
+					<div class="my-3">
 						<div class="row">
 							<div class="col-12">
-								<div class="px-3">
+								{{-- <div class="px-3"> --}}
 									<a href="tel:+3619201570" class="text-green">+ 36 1 920 1570</a><br>
 									<a target="_blank" href="www.omegapharma.hu" class="text-green">www.omegapharma.hu</a><br>
 									<a href="mailto:infohungary@perrigo.com">infohungary@perrigo.com</a>
 									<p style="font-size:12px;"" class="mt-3">Kérjük, ha bármely Omega Pharma Hungary Kft. által forgalmazott készítménnyel kapcsolatos mellékhatást, nemkívánatos hatást szeretne bejelenteni, illetve a készítmények alkalmazásával, minőségével kapcsolatos kérdése, észrevétele van, írjon a HU.safety@perrigo.com e-mail címre vagy hívja a <a href="tel:+3619201570">+ 36 1 920 1570</a> telefonszámot.</p>
-								</div>
+								{{-- </div> --}}
 							</div>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content bg-light p-4">
 			<div class="modal-body">
-				Köszönjük a megkeresést, kollegánk hamarosan keresni fogja önt!	
+				Köszönjük a megkeresést, kollegánk hamarosan keresni fogja önt!
 			</div>
 		</div>
 	</div>

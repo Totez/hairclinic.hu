@@ -18,7 +18,7 @@
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
                                             <a class="d-block scroll-to-element nav-link text-dark text-menu triggerFadeIn" href="#" data-target="info">Ismertető</a>
-                                            <a class="d-block scroll-to-element nav-link text-dark text-menu triggerFadeIn" href="#" data-target="ingredients">Hatóanyagok</a>
+                                            <a class="d-block scroll-to-element nav-link text-dark text-menu triggerFadeIn" href="#" data-target="ingredients">Összetevők</a>
                                             <a class="d-block scroll-to-element nav-link text-dark text-menu triggerFadeIn" href="#" data-target="dosage">Adagolás</a>
                                             <a class="d-block scroll-to-element nav-link text-dark text-menu triggerFadeIn" href="#" data-target="buying">Vásárlás</a>
                                         </li>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-12 col-md-5 offset-md-7 py-5" id="ingredients">
 
-                    <h3 class="py-5">Hatóanyagok</h3>
+                    <h3 class="py-5">Összetevők</h3>
 
                     @foreach($page_contents["hairclinic_men"]["ingredients"] as $value)
                         <div class="row">

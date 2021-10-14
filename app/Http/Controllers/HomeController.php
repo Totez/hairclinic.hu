@@ -35,8 +35,21 @@ class HomeController extends AbstractController {
 
 
         $pageContents = $this->pageContentService->getContentsForPage("home");
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_men", "rossmann_hc_men", "dm_hc_extra", "rossmann_hc_extra"];
+
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
+
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
 
         return response()->view("index", [
+            "products" => $product_infos,
             "page_contents" => $pageContents
         ]);
     }
@@ -66,7 +79,7 @@ class HomeController extends AbstractController {
 
     public function hairclinicExtra() {
 
-        $product_keys = ["dm_hc_extra", "rossmann_hc_extra"];
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_men", "rossmann_hc_men", "dm_hc_extra", "rossmann_hc_extra"];
 
         $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
 
@@ -89,7 +102,7 @@ class HomeController extends AbstractController {
 
     public function hairclinicMen() {
 
-        $product_keys = ["dm_hc_men", "rossmann_hc_men"];
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_men", "rossmann_hc_men", "dm_hc_extra", "rossmann_hc_extra"];
 
         $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
 
@@ -114,7 +127,20 @@ class HomeController extends AbstractController {
 
         $pageContents = $this->pageContentService->getContentsForPage("good_to_know");
 
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_men", "rossmann_hc_men", "dm_hc_extra", "rossmann_hc_extra"];
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
+
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
+
         return response()->view("good-to-know", [
+            "products" => $product_infos,
             "page_contents" => $pageContents
         ]);
     }
@@ -123,8 +149,21 @@ class HomeController extends AbstractController {
 
         $pageContents = $this->pageContentService->getContentsForPage("advice");
         $pageImages = $this->pageImageService->getImagesForPage("advice");
+        $product_keys = ["dm_hc_30", "dm_hc_90", "rossmann_hc_30", "rossmann_hc_90", "dm_hc_men", "rossmann_hc_men", "dm_hc_extra", "rossmann_hc_extra"];
+
+        $products = Product::query()->whereIn("key", $product_keys)->get()->keyBy("key");
+
+        $product_infos = $products->map(function (Product $product) {
+            return array(
+                "price" => $product->price,
+                "url" => $product->shop_url,
+                "is_outdated" => $product->updated_at->diffInDays() >= 1,
+                "updated_at" => $product->updated_at
+            );
+        });
 
         return response()->view("advice-of-zsidro", [
+            "products" => $product_infos,
             "page_contents" => $pageContents,
             "page_images" => $pageImages
         ]);
