@@ -37,6 +37,6 @@
 	<div class="position-absolute text-center mx-auto small py-3" style="bottom:0;left:0;right:0;">
 		Az étrend-kiegészítő nem helyettesíti a vegyes és az egészséges életmódot.
 		<br>
-		A legutolsó frissítés dátuma: 2020.12.03
+		A legutolsó frissítés dátuma: 2020.04.16
 	</div>
 </section>
